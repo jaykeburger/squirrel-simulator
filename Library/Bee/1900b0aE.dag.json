@@ -344,7 +344,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 107,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.UnityAdditionalFile.txt"
@@ -370,7 +370,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 45086,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.rsp2"
@@ -2408,7 +2408,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 52781,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.UnityAdditionalFile.txt"
@@ -2434,7 +2434,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 92257,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.rsp2"
@@ -3091,7 +3091,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 100490,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/UnityEditor.TestRunner.UnityAdditionalFile.txt"
@@ -3117,7 +3117,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 151578,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/UnityEditor.TestRunner.rsp2"
@@ -3785,7 +3785,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 159439,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.UnityAdditionalFile.txt"
@@ -3811,7 +3811,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 196009,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.rsp2"
@@ -4385,7 +4385,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 204575,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.UnityAdditionalFile.txt"
@@ -4411,7 +4411,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 238594,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.rsp2"
@@ -4938,7 +4938,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 247263,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.UnityAdditionalFile.txt"
@@ -4964,7 +4964,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 284079,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.rsp2"
@@ -5502,7 +5502,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 292742,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.UnityAdditionalFile.txt"
@@ -5528,7 +5528,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 358193,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.rsp2"
@@ -6322,7 +6322,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 366382,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.UnityAdditionalFile.txt"
@@ -6348,7 +6348,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 402576,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.rsp2"
@@ -6871,7 +6871,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 410676,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Settings.Editor.UnityAdditionalFile.txt"
@@ -6897,7 +6897,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 445395,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Settings.Editor.rsp2"
@@ -7415,7 +7415,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 454066,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.UnityAdditionalFile.txt"
@@ -7441,7 +7441,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 489606,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.rsp2"
@@ -7961,7 +7961,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 498317,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.UnityAdditionalFile.txt"
@@ -7987,7 +7987,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 532650,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.rsp2"
@@ -8496,7 +8496,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 541327,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TextMeshPro.UnityAdditionalFile.txt"
@@ -8522,7 +8522,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 578897,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TextMeshPro.rsp2"
@@ -9071,7 +9071,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 587277,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Timeline.UnityAdditionalFile.txt"
@@ -9097,7 +9097,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 625925,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Timeline.rsp2"
@@ -9660,7 +9660,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 634307,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.UnityAdditionalFile.txt"
@@ -9686,7 +9686,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 668671,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.rsp2"
@@ -10199,7 +10199,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 677315,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.UnityAdditionalFile.txt"
@@ -10225,7 +10225,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 763590,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.rsp2"
@@ -11142,7 +11142,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 771990,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualStudio.Editor.UnityAdditionalFile.txt"
@@ -11168,7 +11168,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 808074,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualStudio.Editor.rsp2"
@@ -11692,7 +11692,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 816184,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.CollabProxy.Editor.UnityAdditionalFile.txt"
@@ -11718,7 +11718,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 849988,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.CollabProxy.Editor.rsp2"
@@ -12246,7 +12246,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 858731,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.UnityAdditionalFile.txt"
@@ -12272,7 +12272,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 896805,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.rsp2"
@@ -12872,7 +12872,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 905244,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TextMeshPro.Editor.UnityAdditionalFile.txt"
@@ -12898,7 +12898,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 943412,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.TextMeshPro.Editor.rsp2"
@@ -13473,7 +13473,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 952135,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Timeline.Editor.UnityAdditionalFile.txt"
@@ -13499,7 +13499,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1010137,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.Timeline.Editor.rsp2"
@@ -14298,7 +14298,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1018866,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.Editor.UnityAdditionalFile.txt"
@@ -14324,7 +14324,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1109557,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.Editor.rsp2"
@@ -15321,7 +15321,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1118303,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Flow.UnityAdditionalFile.txt"
@@ -15347,7 +15347,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1200107,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Flow.rsp2"
@@ -16243,7 +16243,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1208603,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Flow.Editor.UnityAdditionalFile.txt"
@@ -16269,7 +16269,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1262745,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Flow.Editor.rsp2"
@@ -16990,7 +16990,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1271675,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.State.UnityAdditionalFile.txt"
@@ -17016,7 +17016,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1307485,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.State.rsp2"
@@ -17545,7 +17545,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1316082,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.SettingsProvider.Editor.UnityAdditionalFile.txt"
@@ -17571,7 +17571,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1351274,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.SettingsProvider.Editor.rsp2"
@@ -18141,7 +18141,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1360407,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.State.Editor.UnityAdditionalFile.txt"
@@ -18167,7 +18167,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1402534,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.State.Editor.rsp2"
@@ -18760,7 +18760,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1411657,
       "PayloadLength": 33,
-      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\Squirrel Simula",
+      "PayloadDebugContentSnippet": "C:\\Users\\jayke\\squirrel-simula",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.UnityAdditionalFile.txt"
@@ -18786,7 +18786,7 @@
       "ActionType": "WriteFile",
       "PayloadOffset": 1445932,
       "PayloadLength": 46,
-      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\Squir",
+      "PayloadDebugContentSnippet": "/pathmap:\"C:\\Users\\jayke\\squir",
       "Inputs": [],
       "Outputs": [
         "Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.rsp2"
@@ -20141,7 +20141,7 @@
     {
       "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
       "DisplayName": "BuildPlayerDataGenerator TypeDb-All",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/ScriptAssemblies/Unity.TextMeshPro.dll\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/ScriptAssemblies/Unity.Timeline.dll\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/ScriptAssemblies/Unity.VisualScripting.State.dll\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/ScriptAssemblies/UnityEngine.TestRunner.dll\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/ScriptAssemblies/UnityEngine.UI.dll\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll\" -a=\"C:/Users/jayke/Squirrel Simulator/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Managed/UnityEngine\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/NetStandard/Extensions/2.0.0\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/NetStandard/ref/2.1.0\" -s=\"C:/Users/jayke/Squirrel Simulator/Library/ScriptAssemblies\" -s=\"C:/Users/jayke/Squirrel Simulator/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom\" -s=\"C:/Users/jayke/Squirrel Simulator/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator\" -s=\"C:/Users/jayke/Squirrel Simulator/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Action": "\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"C:/Users/jayke/squirrel-simulator/Library/ScriptAssemblies/Unity.TextMeshPro.dll\" -a=\"C:/Users/jayke/squirrel-simulator/Library/ScriptAssemblies/Unity.Timeline.dll\" -a=\"C:/Users/jayke/squirrel-simulator/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll\" -a=\"C:/Users/jayke/squirrel-simulator/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll\" -a=\"C:/Users/jayke/squirrel-simulator/Library/ScriptAssemblies/Unity.VisualScripting.State.dll\" -a=\"C:/Users/jayke/squirrel-simulator/Library/ScriptAssemblies/UnityEngine.TestRunner.dll\" -a=\"C:/Users/jayke/squirrel-simulator/Library/ScriptAssemblies/UnityEngine.UI.dll\" -a=\"C:/Users/jayke/squirrel-simulator/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll\" -a=\"C:/Users/jayke/squirrel-simulator/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll\" -a=\"C:/Users/jayke/squirrel-simulator/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Managed/UnityEngine\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/NetStandard/Extensions/2.0.0\" -s=\"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/NetStandard/ref/2.1.0\" -s=\"C:/Users/jayke/squirrel-simulator/Library/ScriptAssemblies\" -s=\"C:/Users/jayke/squirrel-simulator/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom\" -s=\"C:/Users/jayke/squirrel-simulator/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator\" -s=\"C:/Users/jayke/squirrel-simulator/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
       "Inputs": [
         "C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
         "C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
@@ -20425,6 +20425,6 @@
   "SharedResources": [],
   "Scanners": [],
   "Identifier": "Library/Bee/1900b0aE.dag.json",
-  "PayloadsFile": "C:/Users/jayke/Squirrel Simulator/Library/Bee/1900b0aE.dag.payloads",
+  "PayloadsFile": "C:/Users/jayke/squirrel-simulator/Library/Bee/1900b0aE.dag.payloads",
   "RelativePathToRoot": "../.."
 }
