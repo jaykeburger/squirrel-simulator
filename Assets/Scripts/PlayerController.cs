@@ -20,11 +20,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float currentSpeed;
     [SerializeField]
-    private float walkSpeed = 2.0f;
+    private float walkSpeed = 8.0f;
     [SerializeField]
-    private float sprintSpeed = 8.0f;
+    private float sprintSpeed = 15.0f;
     [SerializeField]
-    private float jumpHeight = 1.0f;
+    private float jumpHeight = 2.0f;
     [SerializeField]
     private float gravityValue = -9.81f;
     [SerializeField]
@@ -107,10 +107,16 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        //Rotate character towards camera direction.
-        if (input != Vector2.zero) {
+        //Rotate character with camera direction.
+        if (input != Vector2.zero && !aimAction.IsPressed()) //Control player rotation with camera while not aiming
+        {
             float targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0, targetAngle, 0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        }
+        if (aimAction.IsPressed())
+        {
+            Quaternion rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         }
 
