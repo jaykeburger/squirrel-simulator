@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        shootAction.performed -= _ => weapons[currentWeapon].StartShooting();
+        // shootAction.performed -= _ => weapons[currentWeapon].StartShooting();
         shootAction.canceled -= _ => weapons[currentWeapon].StopShooting();
     }
 
