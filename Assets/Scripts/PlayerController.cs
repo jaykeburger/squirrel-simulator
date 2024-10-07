@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        // shootAction.performed -= _ => weapons[currentWeapon].StartShooting();
+        shootAction.performed -= _ => weapons[currentWeapon].StartShooting();
         shootAction.canceled -= _ => weapons[currentWeapon].StopShooting();
     }
 
@@ -83,13 +83,13 @@ public class PlayerController : MonoBehaviour
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
         move.y = 0f;
 
-        // Condition for sprinting when player is moving and is holding down left shift
-        if (input != Vector2.zero && sprintAction.IsPressed() && PlayerState.Instance.currentStamina > 0)
+        // Make sure stamina bar only decrease if player move while hold down the shift button and on the ground
+        if (input != Vector2.zero && sprintAction.IsPressed() && PlayerState.Instance.currentStamina > 0 && groundedPlayer)
         {
             currentSpeed = sprintSpeed;
             PlayerState.Instance.UseStamina(Time.deltaTime); //Reduce stamina while sprinting
         }
-        else
+        else 
         {
             currentSpeed = walkSpeed;
             if (!sprintAction.IsPressed())
