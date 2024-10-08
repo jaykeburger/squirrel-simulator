@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         move.y = 0f;
 
         // Make sure stamina bar only decrease if player move while hold down the shift button and on the ground
-        if (input != Vector2.zero && sprintAction.IsPressed() && PlayerState.Instance.currentStamina > 0 && groundedPlayer)
+        if (input != Vector2.zero && sprintAction.IsPressed() && PlayerState.Instance.currentStamina > 0)
         {
             currentSpeed = sprintSpeed;
             PlayerState.Instance.UseStamina(Time.deltaTime); //Reduce stamina while sprinting

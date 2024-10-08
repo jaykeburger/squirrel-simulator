@@ -39,7 +39,7 @@ public class WeaponSpawnManager : MonoBehaviour
             currentSum += item.spawnRate;
             if (randomNumber <= currentSum)
             {
-                Vector3 baseSpawnPosition = new Vector3(108.769f, 1.363156f, -64.68954f);
+                Vector3 baseSpawnPosition = new Vector3(108.769f, 1.5f, -64.68954f);
                 float range = 100.0f;
                 Vector3 spawnPosition = new Vector3(
                     baseSpawnPosition.x + Random.Range(-range, range),
