@@ -54,7 +54,7 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "ddab2a6a-90ea-42fd-85f7-bb7c6c6d105a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -163,7 +163,7 @@
                 {
                     "name": "",
                     "id": "36f34eb6-b6b6-4746-a20d-3d4d39a5e7c4",
-                    "path": "<Keyboard>/q",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

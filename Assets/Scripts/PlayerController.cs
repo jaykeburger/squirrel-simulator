@@ -34,6 +34,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int currentWeapon = 0;
 
+    // Audio clips for different actions
+    [SerializeField]
+    private AudioClip jumpClip;
+    [SerializeField]
+    private AudioClip shootClip;
+    [SerializeField]
+    private AudioClip moveClip;
+    [SerializeField]
+    private AudioClip sprintClip;
+    
+    // AudioSources for playing the clips
+    private AudioSource jumpAudioSource;
+    private AudioSource shootAudioSource;
+    private AudioSource moveAudioSource;
+    private AudioSource sprintAudioSource;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -47,6 +63,19 @@ public class PlayerController : MonoBehaviour
         aimAction = playerInput.actions["Aim"];
         currentSpeed = walkSpeed;
         print(weapons.Length);
+
+        // Create audio sources
+        jumpAudioSource = gameObject.AddComponent<AudioSource>();
+        shootAudioSource = gameObject.AddComponent<AudioSource>();
+        moveAudioSource = gameObject.AddComponent<AudioSource>();
+        sprintAudioSource = gameObject.AddComponent<AudioSource>();
+
+        // Set the respective audio clips to the audio sources
+        jumpAudioSource.clip = jumpClip;
+        shootAudioSource.clip = shootClip;
+        moveAudioSource.clip = moveClip;
+        sprintAudioSource.clip = sprintClip;
+
     }
     private void OnEnable()
     {
@@ -55,6 +84,7 @@ public class PlayerController : MonoBehaviour
             if (aimAction.IsPressed()) // Only activate shoot when aiming
             {
                 weapons[currentWeapon].StartShooting(); // Shoot using the current weapon
+                shootAudioSource.Play();
             }
         };
 
@@ -88,6 +118,10 @@ public class PlayerController : MonoBehaviour
         {
             currentSpeed = sprintSpeed;
             PlayerState.Instance.UseStamina(Time.deltaTime); //Reduce stamina while sprinting
+            if (!sprintAudioSource.isPlaying) // Play sprint sound only once when sprinting
+            {
+                sprintAudioSource.Play();
+            }
         }
         else 
         {
@@ -96,6 +130,10 @@ public class PlayerController : MonoBehaviour
             {
                 PlayerState.Instance.RecoverStamina(Time.deltaTime); //Recovery stamina if not sprinting
             }
+            if (!moveAudioSource.isPlaying && input != Vector2.zero) // Play move sound when walking
+            {
+                moveAudioSource.Play();
+            }
         }
         controller.Move(move * Time.deltaTime * currentSpeed);
 
@@ -103,6 +141,7 @@ public class PlayerController : MonoBehaviour
         if (jumpAction.triggered && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            jumpAudioSource.Play();
         }
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
