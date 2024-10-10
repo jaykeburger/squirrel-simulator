@@ -14,12 +14,6 @@ public class EnemyMover : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    private void OnCollisionEnter(Collision other)
-    {
-        //We can add a bullet decal but right we don't have any.
-        //
-        Destroy(gameObject);
-    }
 
     // Update is called once per frame
     void Update()
