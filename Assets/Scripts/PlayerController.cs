@@ -3,6 +3,7 @@ using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
@@ -20,11 +21,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float currentSpeed;
     [SerializeField]
-    private float walkSpeed = 8.0f;
+    private float walkSpeed;
     [SerializeField]
-    private float sprintSpeed = 15.0f;
+    private float sprintSpeed;
     [SerializeField]
-    private float jumpHeight = 2.0f;
+    private float jumpHeight;
     [SerializeField]
     private float gravityValue = -9.81f;
     [SerializeField]
@@ -62,7 +63,6 @@ public class PlayerController : MonoBehaviour
         shootAction = playerInput.actions["Shoot"];
         aimAction = playerInput.actions["Aim"];
         currentSpeed = walkSpeed;
-        print(weapons.Length);
 
         // Create audio sources
         jumpAudioSource = gameObject.AddComponent<AudioSource>();
@@ -153,10 +153,19 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, targetAngle, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         }
-        if (aimAction.IsPressed())
+        if (aimAction.IsPressed() )
         {
-            Quaternion rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            if (SceneManager.GetActiveScene().name == "JimmyDorm")
+            {
+                float targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
+                Quaternion rotation = Quaternion.Euler(0, targetAngle, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            }
+            else
+            {
+                Quaternion rotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            }
         }
 
         //Update when player switch weapon
