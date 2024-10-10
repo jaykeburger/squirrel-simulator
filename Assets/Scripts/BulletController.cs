@@ -38,8 +38,4 @@ public class BulletController : MonoBehaviour
         //
         Destroy(gameObject);
     }
-    public void OnTriggerEnter(Collider other)
-    {
-        gameObject.SetActive(false);
-    }
 }
