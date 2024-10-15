@@ -869,7 +869,7 @@ Transform:
   m_GameObject: {fileID: 143456113}
   serializedVersion: 2
   m_LocalRotation: {x: 0.066532984, y: -0.008010639, z: 0.0005341725, w: 0.99775195}
-  m_LocalPosition: {x: 190.48323, y: 12.347037, z: -132.63187}
+  m_LocalPosition: {x: 190.76392, y: 12.347037, z: -132.62737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   walkSpeed: 25
   sprintSpeed: 40
   jumpHeight: 2
-  dashSpeed: 80
+  dashSpeed: 60
   dashDuration: 0.25
   dashCoolDown: 2
   gravityValue: -9.81
@@ -3747,7 +3747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 190.48323
+      value: 190.76392
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3755,7 +3755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -132.63187
+      value: -132.62737
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4794,7 +4794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 190.99521
+      value: 191.47658
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4802,7 +4802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -122.11939
+      value: -122.111664
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7546,7 +7546,6 @@ MonoBehaviour:
   maxHealth: 100
   currentStamina: 0
   maxStamina: 100
-  staminaUseRate: 10
   staminaRecoveryRate: 5
 --- !u!4 &1604340975
 Transform:
