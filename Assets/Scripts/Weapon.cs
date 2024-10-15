@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
     // Start shooting
     public void StartShooting()
     {
-        if (!isShooting)
+        if (!PauseScript.GameIsPause)
         {
             shootingCoroutine = StartCoroutine(ShootRoutine());
         }

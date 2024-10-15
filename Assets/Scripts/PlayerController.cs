@@ -1,5 +1,7 @@
+using System.Collections;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.Sqlite;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
@@ -18,6 +20,9 @@ public class PlayerController : MonoBehaviour
     private InputAction sprintAction;
     private InputAction shootAction;
     private InputAction aimAction;
+    private InputAction dashAction;
+    private bool isDashing = false;
+    private float dashCoolDownTimer; // Keep track of the time remain for dashing
     [SerializeField]
     private float currentSpeed;
     [SerializeField]
@@ -26,6 +31,12 @@ public class PlayerController : MonoBehaviour
     private float sprintSpeed;
     [SerializeField]
     private float jumpHeight;
+    [SerializeField]
+    private float dashSpeed;
+    [SerializeField]
+    private float dashDuration; 
+    [SerializeField]
+    private float dashCoolDown; //Time before player can dash again
     [SerializeField]
     private float gravityValue = -9.81f;
     [SerializeField]
@@ -62,6 +73,7 @@ public class PlayerController : MonoBehaviour
         sprintAction = playerInput.actions["Sprint"];
         shootAction = playerInput.actions["Shoot"];
         aimAction = playerInput.actions["Aim"];
+        dashAction = playerInput.actions["Dash"];
         currentSpeed = walkSpeed;
 
         // Create audio sources
@@ -79,27 +91,33 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
+        // Shooting
         shootAction.performed += _ =>
         {
-            if (aimAction.IsPressed()) // Only activate shoot when aiming
+            if (aimAction.IsPressed() && !PauseScript.GameIsPause) // Only activate shoot when aiming and Pause Menu is not active
             {
                 weapons[currentWeapon].StartShooting(); // Shoot using the current weapon
                 shootAudioSource.Play();
             }
         };
-
         shootAction.canceled += _ => weapons[currentWeapon].StopShooting();
 
+        // Dashing
+        dashAction.performed += _ => tryDash();
     }
 
     private void OnDisable()
     {
         shootAction.performed -= _ => weapons[currentWeapon].StartShooting();
         shootAction.canceled -= _ => weapons[currentWeapon].StopShooting();
+        dashAction.performed -= _ => tryDash();
     }
 
     void Update()
     {
+        /*
+        MOVING WITH CAMERA===========================================================================
+        */
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -113,12 +131,29 @@ public class PlayerController : MonoBehaviour
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
         move.y = 0f;
 
+        /*
+        TIMER FOR DASHING============================================================
+        */
+        if (dashCoolDownTimer > 0f) //Reduce time left for dashing
+        {
+            dashCoolDownTimer -= Time.deltaTime;
+        }
+
+        /*
+        SPRINTING, DASHING, AND STAMINA DECREASING============================================================
+        */
+        
+        if (isDashing)
+        {
+            PlayerState.Instance.UseStamina(Time.deltaTime, 50f);
+            currentSpeed = dashSpeed;
+        }
         // Make sure stamina bar only decrease if player move while hold down the shift button and on the ground
-        if (input != Vector2.zero && sprintAction.IsPressed() && PlayerState.Instance.currentStamina > 0)
+        else if (input != Vector2.zero && sprintAction.IsPressed() && PlayerState.Instance.currentStamina > 0 )
         {
             currentSpeed = sprintSpeed;
-            PlayerState.Instance.UseStamina(Time.deltaTime); //Reduce stamina while sprinting
-            if (!sprintAudioSource.isPlaying) // Play sprint sound only once when sprinting
+            PlayerState.Instance.UseStamina(Time.deltaTime, 10f); //Reduce stamina while sprinting
+            if (!sprintAudioSource.isPlaying && !PauseScript.GameIsPause) // Play sprint sound only once when sprinting
             {
                 sprintAudioSource.Play();
             }
@@ -130,13 +165,15 @@ public class PlayerController : MonoBehaviour
             {
                 PlayerState.Instance.RecoverStamina(Time.deltaTime); //Recovery stamina if not sprinting
             }
-            if (!moveAudioSource.isPlaying && input != Vector2.zero) // Play move sound when walking
+            if (!moveAudioSource.isPlaying && input != Vector2.zero && !PauseScript.GameIsPause) // Play move sound when walking
             {
                 moveAudioSource.Play();
             }
         }
         controller.Move(move * Time.deltaTime * currentSpeed);
-
+        /*
+        JUMPING=====================================================================================
+        */
         // Changes the height position of the player.
         if (jumpAction.triggered && groundedPlayer)
         {
@@ -146,6 +183,9 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
+        /*
+        CAMERA ROTATION=======================================================================================
+        */
         //Rotate character with camera direction.
         if (input != Vector2.zero && !aimAction.IsPressed()) //Control player rotation with camera while not aiming
         {
@@ -153,7 +193,7 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, targetAngle, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         }
-        if (aimAction.IsPressed() )
+        if (aimAction.IsPressed())
         {
             if (SceneManager.GetActiveScene().name == "JimmyDorm")
             {
@@ -167,7 +207,9 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
             }
         }
-
+        /*
+        SWITCHING WEAPONS FUNCTIONS===============================================================================
+        */
         //Update when player switch weapon
         if (Input.GetAxis("Mouse ScrollWheel") > 0f && !aimAction.IsPressed()) // If player scroll up and NOT aiming
         {
@@ -191,5 +233,24 @@ public class PlayerController : MonoBehaviour
                 currentWeapon --;
             }
         }
+    }
+
+    private void tryDash()
+    {
+        // Restrain dashing from being active if at Jimmy's and Pause menu is actived
+        if (!isDashing && dashCoolDownTimer <= 0f && SceneManager.GetActiveScene().name != "JimmyDorm" && !PauseScript.GameIsPause)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        isDashing = true; // Start Dashing
+        dashCoolDownTimer = dashCoolDown; // Reset cooldown timer
+
+        yield return new WaitForSeconds(dashDuration);
+
+        isDashing = false;
     }
 }

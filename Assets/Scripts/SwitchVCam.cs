@@ -34,13 +34,17 @@ public class SwitchVCam : MonoBehaviour
 
     private void StartAim()
     {
-        virtualCamera.Priority += priorityBoostAmount; //Boost the priority of aiming camera.
-        aimCanvas.enabled = true;
+        if (!PauseScript.GameIsPause) {
+            virtualCamera.Priority += priorityBoostAmount; //Boost the priority of aiming camera.
+            aimCanvas.enabled = true;
+        }
     }
 
     private void CancelAim()
     {
-        virtualCamera.Priority -= priorityBoostAmount;
-        aimCanvas.enabled = false;
+        if (!PauseScript.GameIsPause) {
+            virtualCamera.Priority -= priorityBoostAmount;
+            aimCanvas.enabled = false;
+        }
     }
 }

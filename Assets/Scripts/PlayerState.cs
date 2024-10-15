@@ -1,6 +1,8 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerState : MonoBehaviour
 {
@@ -9,11 +11,12 @@ public class PlayerState : MonoBehaviour
     //----- Player Health ------//
     public float currentHealth;
     public float maxHealth;
+    private bool isHealing = false;
 
     //----- Player Stamina -----//
     public float currentStamina;
     public float maxStamina;
-    public float staminaUseRate = 10.0f;
+    // public float staminaUseRate = 10.0f;
     public float staminaRecoveryRate = 5.0f;
 
     private void Awake()
@@ -39,7 +42,7 @@ public class PlayerState : MonoBehaviour
         // Simulate taking damage with K key
         if (Input.GetKeyDown(KeyCode.K))
         {
-            currentHealth -= 10;
+            DecreaseHealth(10);
         }   
         if (currentHealth == 0)
         {
@@ -47,10 +50,35 @@ public class PlayerState : MonoBehaviour
         }
     }
 
-    // Function to reduce stamina if player is sprinting
-    public void UseStamina(float deltaTime)
+    void DecreaseHealth(int amount)
     {
-        currentStamina -= staminaUseRate * deltaTime;
+        currentHealth -= amount;
+
+        if (!isHealing)
+        {
+            StartCoroutine(RecoverHealth());
+        }
+    }
+
+    IEnumerator RecoverHealth()
+    {
+        if (SceneManager.GetActiveScene().name == "JimmyDorm")
+        {
+            isHealing = true;
+
+            while (currentHealth < maxHealth){
+                yield return new WaitForSeconds(3f); //Wait for 3s each time we increase health
+                currentHealth += 10;
+                currentHealth = Mathf.Min(currentHealth, maxHealth); //Ensure that current health won't exceed maxHealth
+            }
+            isHealing = false;
+        }
+    }
+
+    // Function to reduce stamina if player is sprinting
+    public void UseStamina(float deltaTime, float StaminaUsedRate)
+    {
+        currentStamina -= StaminaUsedRate * deltaTime;
         if (currentStamina < 0)
         {
             currentStamina = 0;
