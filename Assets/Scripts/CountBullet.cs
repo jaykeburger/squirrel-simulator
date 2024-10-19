@@ -6,26 +6,28 @@ using UnityEngine;
 
 public class CountBullet : MonoBehaviour
 {
-    private int acorn_int = 0;
-    private int rock_int = 0;
     public TextMeshProUGUI acornText;
     public TextMeshProUGUI rockText;
+
+    void Start()
+    {
+        acornText.text = "Acorn: " + GlobalValues.acornCount.ToString();
+        rockText.text = "Rock: " + GlobalValues.rockCount.ToString();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Acorn")
         {
-            acorn_int ++;
-            acornText.text = "Acorn: " + acorn_int.ToString();
-            Debug.Log(acorn_int);
+            GlobalValues.acornCount ++;
+            acornText.text = "Acorn: " + GlobalValues.acornCount.ToString();
             Destroy(other.gameObject);
         }
 
         if (other.transform.tag == "Rock")
         {
-            rock_int ++;
-            rockText.text = "Rock: " + rock_int.ToString();
-            Debug.Log(acorn_int);
+            GlobalValues.rockCount ++;
+            rockText.text = "Rock: " + GlobalValues.rockCount.ToString();
             Destroy(other.gameObject);
         }
     }

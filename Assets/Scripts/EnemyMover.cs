@@ -1,26 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
-    public GameObject player;
-    // Start is called before the first frame update
+    // private GenerateEnemies enemyController;
+    public Transform player;
+    private Vector3 spawnPosition;
+
+    // Variables for enemies patrolling
+    public float patrolRange;//Patrol range from spawn position
+    public float patrolSpeed;
+    private bool movingRight = true;
+
+    // Variables for enemies attacking
+    public float attackRange;
+    public float chaseSpeed;
+
+
     void Start()
     {
-        
+        spawnPosition = transform.position;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        gameObject.SetActive(false);
+        // If touched player, then slow down.
+        if (other.gameObject == GameObject.FindWithTag("Player"))
+        {
+            chaseSpeed = 0;
+            StartCoroutine(DelaySpeed());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.LookAt(player.transform);
-        Quaternion targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 1 * Time.deltaTime);
-        transform.position += transform.forward * 3f * Time.deltaTime;
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer > attackRange)
+        {
+            Patrol();
+        }
+        else
+        {
+            ChasePlayer();
+        }
+    }
+
+    private IEnumerator DelaySpeed()
+    {
+        yield return new WaitForSeconds(3f);
+        chaseSpeed = 30;
+    } 
+    private void Patrol()
+    {
+        float leftBound = spawnPosition.x - patrolRange;
+        float rightBound = spawnPosition.x + patrolRange;
+
+        if (movingRight)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.right);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7 * Time.deltaTime);
+            transform.position += Vector3.right * patrolSpeed * Time.deltaTime;
+            if (transform.position.x >= rightBound)
+            {
+                movingRight = false;
+            }
+        }
+        else
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.left);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7 * Time.deltaTime);
+            transform.position += Vector3.left * patrolSpeed * Time.deltaTime;
+            if (transform.position.x <= leftBound)
+            {
+                movingRight = true;
+            }
+        }
+    }
+
+    private void ChasePlayer()
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7 * Time.deltaTime);
+        transform.position += direction * chaseSpeed * Time.deltaTime;
     }
 }

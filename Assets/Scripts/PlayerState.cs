@@ -9,14 +9,9 @@ public class PlayerState : MonoBehaviour
     public static PlayerState Instance { get; set; }
 
     //----- Player Health ------//
-    public float currentHealth;
-    public float maxHealth;
     private bool isHealing = false;
 
     //----- Player Stamina -----//
-    public float currentStamina;
-    public float maxStamina;
-    // public float staminaUseRate = 10.0f;
     public float staminaRecoveryRate = 5.0f;
 
     private void Awake()
@@ -33,8 +28,10 @@ public class PlayerState : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
-        currentStamina = maxStamina;
+        GlobalValues.currentHealth = Mathf.Min(GlobalValues.currentHealth, GlobalValues.maxHealth);
+        GlobalValues.currentStamina = Mathf.Min(GlobalValues.currentStamina, GlobalValues.maxStamina);
+        // currentHealth = maxHealth;
+        // currentStamina = maxStamina;
     }
 
     void Update()
@@ -44,20 +41,23 @@ public class PlayerState : MonoBehaviour
         {
             DecreaseHealth(10);
         }   
-        if (currentHealth == 0)
+        if (GlobalValues.currentHealth == 0)
         {
-            currentHealth = maxHealth;
+            GlobalValues.currentHealth = GlobalValues.maxHealth;
+        }
+        
+        if (GlobalValues.currentHealth < GlobalValues.maxHealth)
+        {
+            if (!isHealing)
+            {
+                StartCoroutine(RecoverHealth());
+            }
         }
     }
 
     void DecreaseHealth(int amount)
     {
-        currentHealth -= amount;
-
-        if (!isHealing)
-        {
-            StartCoroutine(RecoverHealth());
-        }
+        GlobalValues.currentHealth -= amount;
     }
 
     IEnumerator RecoverHealth()
@@ -66,10 +66,10 @@ public class PlayerState : MonoBehaviour
         {
             isHealing = true;
 
-            while (currentHealth < maxHealth){
+            while (GlobalValues.currentHealth < GlobalValues.maxHealth){
                 yield return new WaitForSeconds(3f); //Wait for 3s each time we increase health
-                currentHealth += 10;
-                currentHealth = Mathf.Min(currentHealth, maxHealth); //Ensure that current health won't exceed maxHealth
+                GlobalValues.currentHealth += 10;
+                GlobalValues.currentHealth = Mathf.Min(GlobalValues.currentHealth, GlobalValues.maxHealth); //Ensure that current health won't exceed maxHealth
             }
             isHealing = false;
         }
@@ -78,20 +78,20 @@ public class PlayerState : MonoBehaviour
     // Function to reduce stamina if player is sprinting
     public void UseStamina(float deltaTime, float StaminaUsedRate)
     {
-        currentStamina -= StaminaUsedRate * deltaTime;
-        if (currentStamina < 0)
+        GlobalValues.currentStamina -= StaminaUsedRate * deltaTime;
+        if (GlobalValues.currentStamina < 0)
         {
-            currentStamina = 0;
+            GlobalValues.currentStamina = 0;
         }
     }
 
     //Function to recover stamina if player is not sprinting
     public void RecoverStamina(float deltaTime)
     {
-        currentStamina += staminaRecoveryRate * deltaTime;
-        if (currentStamina > maxStamina)
+        GlobalValues.currentStamina += staminaRecoveryRate * deltaTime;
+        if (GlobalValues.currentStamina > GlobalValues.maxStamina)
         {
-            currentStamina = maxStamina;
+            GlobalValues.currentStamina = GlobalValues.maxStamina;
         }
     }
 }

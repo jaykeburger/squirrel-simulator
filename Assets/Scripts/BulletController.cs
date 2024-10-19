@@ -34,8 +34,22 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //We can add a bullet decal but right we don't have any.
-        //
-        Destroy(gameObject);
+        if (other.collider.CompareTag("Enemy"))
+        {
+            Transform enemyTransform = other.collider.transform.parent;
+
+            // Get the EnemyHealthBar component from the parent
+            EnemyHealthBar enemyHealthBar = enemyTransform.GetComponent<EnemyHealthBar>();
+            if (enemyHealthBar != null)
+            {
+                enemyHealthBar.takeDamge(); // Call the takeDamage function
+            }
+            else
+            {
+                Debug.LogError("EnemyHealthBar component not found on enemy-rat!");
+            }
+            Destroy(gameObject);
+        }
     }
+
 }

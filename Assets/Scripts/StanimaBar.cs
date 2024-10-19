@@ -7,7 +7,6 @@ public class StanimaBar : MonoBehaviour
 {
     private Slider slider;
     public Text staminaCounter;
-    public GameObject playerState;
     private float currentStamina, maxStamina;
 
     void Awake()
@@ -17,8 +16,8 @@ public class StanimaBar : MonoBehaviour
 
     void Update()
     {
-        currentStamina = playerState.GetComponent<PlayerState>().currentStamina;
-        maxStamina = playerState.GetComponent<PlayerState>().maxStamina;
+        currentStamina = GlobalValues.currentStamina;
+        maxStamina = GlobalValues.maxStamina;
         
         float fillValue = currentStamina / maxStamina;
         slider.value = fillValue; //Fill in the slider value

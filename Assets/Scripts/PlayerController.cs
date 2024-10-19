@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
     private CharacterController controller;
     private PlayerInput playerInput;
     private Vector3 playerVelocity;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private InputAction dashAction;
     private bool isDashing = false;
     private float dashCoolDownTimer; // Keep track of the time remain for dashing
+    private int currentWeapon = 0;
     [SerializeField]
     private float currentSpeed;
     [SerializeField]
@@ -42,10 +44,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 10f;
     [SerializeField]
-    private Weapon[] weapons;  // Array of available weapons
-    [SerializeField]
-    private int currentWeapon = 0;
-
+    private BaseWeapon[] weapons;  // Array of available weapons
+    public WeaponManager weaponManager;
+    
     // Audio clips for different actions
     [SerializeField]
     private AudioClip jumpClip;
@@ -64,6 +65,14 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else 
+        {
+            Instance = this;
+        }
         controller = GetComponent<CharacterController>();
         playerInput= GetComponent<PlayerInput>();
         cameraTransform = Camera.main.transform;
@@ -92,25 +101,42 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         // Shooting
-        shootAction.performed += _ =>
+        if (SceneManager.GetActiveScene().name != "JimmyDorm")
         {
-            if (aimAction.IsPressed() && !PauseScript.GameIsPause) // Only activate shoot when aiming and Pause Menu is not active
-            {
-                weapons[currentWeapon].StartShooting(); // Shoot using the current weapon
-                shootAudioSource.Play();
-            }
-        };
-        shootAction.canceled += _ => weapons[currentWeapon].StopShooting();
+            shootAction.performed += OnShootPerformed;
+            shootAction.canceled += OnShootingCanceled;
 
-        // Dashing
-        dashAction.performed += _ => tryDash();
+            // Dashing
+            dashAction.performed += _ => tryDash();
+        }
     }
 
     private void OnDisable()
     {
-        shootAction.performed -= _ => weapons[currentWeapon].StartShooting();
-        shootAction.canceled -= _ => weapons[currentWeapon].StopShooting();
+        shootAction.performed -= OnShootingCanceled;
+        shootAction.canceled -= OnShootingCanceled;
+
         dashAction.performed -= _ => tryDash();
+    }
+
+    private void OnShootPerformed(InputAction.CallbackContext context)
+    {
+        if (aimAction.IsPressed() && !PauseScript.GameIsPause && SceneManager.GetActiveScene().name != "JimmyDorm")
+        {
+            if (weaponManager != null && weaponManager.weapons.Length > 0)
+            {
+                weaponManager.StartShooting();
+                shootAudioSource.Play();
+            }
+        }
+    }
+
+    private void OnShootingCanceled(InputAction.CallbackContext context)
+    {
+        if (weaponManager != null && weaponManager.weapons.Length > 0)
+        {
+            weaponManager.StopShooting();
+        }
     }
 
     void Update()
@@ -125,7 +151,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 input = moveAction.ReadValue<Vector2>();
-        Vector3 move = new Vector3(input.x, 0, input.y);
+        Vector3 move = new(input.x, 0, input.y);
 
         //Moving according to the angel of the camera.
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
@@ -143,13 +169,14 @@ public class PlayerController : MonoBehaviour
         SPRINTING, DASHING, AND STAMINA DECREASING============================================================
         */
         
-        if (isDashing)
+        // Condition to only dash when still have stamina available
+        if (isDashing && GlobalValues.currentStamina > 0)
         {
             PlayerState.Instance.UseStamina(Time.deltaTime, 50f);
             currentSpeed = dashSpeed;
         }
         // Make sure stamina bar only decrease if player move while hold down the shift button and on the ground
-        else if (input != Vector2.zero && sprintAction.IsPressed() && PlayerState.Instance.currentStamina > 0 )
+        else if (input != Vector2.zero && sprintAction.IsPressed() && GlobalValues.currentStamina > 0 )
         {
             currentSpeed = sprintSpeed;
             PlayerState.Instance.UseStamina(Time.deltaTime, 10f); //Reduce stamina while sprinting
@@ -170,7 +197,7 @@ public class PlayerController : MonoBehaviour
                 moveAudioSource.Play();
             }
         }
-        controller.Move(move * Time.deltaTime * currentSpeed);
+        controller.Move(currentSpeed * Time.deltaTime * move);
         /*
         JUMPING=====================================================================================
         */
@@ -221,22 +248,26 @@ public class PlayerController : MonoBehaviour
             {
                 currentWeapon ++;
             }
+            weaponManager.SwitchWeapon(currentWeapon);
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0f && !aimAction.IsPressed()) // If player scroll down
         {
             if (currentWeapon <=0)
             {
                 currentWeapon = weapons.Length - 1;
+
             }
             else
             {
                 currentWeapon --;
             }
+            weaponManager.SwitchWeapon(currentWeapon);
         }
     }
 
     private void tryDash()
     {
+        if (this == null) Debug.Log("Object destroyed");
         // Restrain dashing from being active if at Jimmy's and Pause menu is actived
         if (!isDashing && dashCoolDownTimer <= 0f && SceneManager.GetActiveScene().name != "JimmyDorm" && !PauseScript.GameIsPause)
         {
@@ -252,5 +283,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
 
         isDashing = false;
+        StopCoroutine(Dash());
     }
 }

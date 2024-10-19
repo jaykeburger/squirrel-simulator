@@ -11,6 +11,7 @@ public class WeaponSpawnManager : MonoBehaviour
 {
     public List<SpawnableItem> spawnableItems; // List of all spawnable items
     public float spawnInterval = 5f; // Time in seconds between spawns
+    public static WeaponSpawnManager Instance { get; private set; }
 
     void Start()
     {
@@ -18,7 +19,16 @@ public class WeaponSpawnManager : MonoBehaviour
     }
     void Awake() 
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else 
+        {
+            Instance = this;
+
+        }
+        // DontDestroyOnLoad(gameObject);
     }   
     void SpawnItem()
     {
