@@ -333,7 +333,7 @@ MonoBehaviour:
   patrolRange: 10
   patrolSpeed: 5
   attackRange: 30
-  chaseSpeed: 30
+  chaseSpeed: 25
 --- !u!114 &3831253611665160912
 MonoBehaviour:
   m_ObjectHideFlags: 0

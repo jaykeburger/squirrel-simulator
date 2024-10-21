@@ -73,7 +73,7 @@ public class GenerateEnemies : MonoBehaviour
             {
                 // Make sure each enemy spawn with distance between them and far from player when spawn (attack range is 30, change if needed)
                 if (Vector3.Distance(spawnPosition, pos)< spawnRadius 
-                    && Vector3.Distance(spawnPosition, player.position) < 30) 
+                    && Vector3.Distance(spawnPosition, player.position) < 50) 
                 {
                     validPos = false;
                     break; //Stop loop through each position and generate a new position.

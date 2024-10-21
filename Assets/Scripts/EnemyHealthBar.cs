@@ -27,9 +27,9 @@ public class EnemyHealthBar : MonoBehaviour
         healthBar.value = currenHealth; // Update slider
     }
 
-    public void takeDamge()
+    public void takeDamge(int amount)
     {
-        currenHealth -= 20;
+        currenHealth -= amount;
         if (currenHealth <= 0)
         {
             Vector3 enemyPos = transform.position;

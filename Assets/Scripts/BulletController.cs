@@ -42,7 +42,7 @@ public class BulletController : MonoBehaviour
             EnemyHealthBar enemyHealthBar = enemyTransform.GetComponent<EnemyHealthBar>();
             if (enemyHealthBar != null)
             {
-                enemyHealthBar.takeDamge(); // Call the takeDamage function
+                enemyHealthBar.takeDamge(damage); // Call the takeDamage function from the enemy health bar script
             }
             else
             {
