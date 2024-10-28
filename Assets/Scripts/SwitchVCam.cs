@@ -1,7 +1,9 @@
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class SwitchVCam : MonoBehaviour
 {
@@ -13,17 +15,25 @@ public class SwitchVCam : MonoBehaviour
     private Canvas aimCanvas;
     private CinemachineVirtualCamera virtualCamera;
     private InputAction aimAction;
+    private static bool aimCanvasExists = false;
+
 
     private void Awake()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         aimAction = playerInput.actions["Aim"];
+        if (aimCanvas != null && !aimCanvasExists)
+        {
+            aimCanvas.transform.SetParent(null);
+            DontDestroyOnLoad(aimCanvas.gameObject);
+            aimCanvasExists = true;
+        }
     }
 
     private void OnEnable()
     {
-        aimAction.performed += _ => StartAim();
-        aimAction.canceled += _ => CancelAim();
+            aimAction.performed += _ => StartAim();
+            aimAction.canceled += _ => CancelAim();
     }
 
     private void OnDisable()
@@ -34,13 +44,33 @@ public class SwitchVCam : MonoBehaviour
 
     private void StartAim()
     {
-        virtualCamera.Priority += priorityBoostAmount; //Boost the priority of aiming camera.
-        aimCanvas.enabled = true;
+        if (!PauseScript.GameIsPause && SceneManager.GetActiveScene().name != "JimmyDorm") {
+            virtualCamera.Priority += priorityBoostAmount; //Boost the priority of aiming camera.
+            if (aimCanvas  == null)
+            {
+                Debug.Log("canvas is Null");
+            }
+            else
+            {
+                aimCanvas.enabled = true;
+            }
+            // aimCanvas.enabled = true;
+        }
     }
 
     private void CancelAim()
     {
-        virtualCamera.Priority -= priorityBoostAmount;
-        aimCanvas.enabled = false;
+        if (!PauseScript.GameIsPause && SceneManager.GetActiveScene().name != "JimmyDorm") {
+            virtualCamera.Priority -= priorityBoostAmount;
+            if (aimCanvas  == null)
+            {
+                Debug.Log("canvas is Null");
+            }
+            else
+            {
+                aimCanvas.enabled = false;
+            }
+            // aimCanvas.enabled = false;
+        }
     }
 }
