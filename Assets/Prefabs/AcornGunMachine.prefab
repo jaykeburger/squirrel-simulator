@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &516722300365180823
+--- !u!1 &4517113672507132958
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8878024886122852138}
-  - component: {fileID: 1771932470201003794}
+  - component: {fileID: 1382864398424295464}
+  - component: {fileID: 5045274386700318576}
   m_Layer: 0
   m_Name: AcornGunMachine
   m_TagString: Untagged
@@ -17,37 +17,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8878024886122852138
+--- !u!4 &1382864398424295464
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516722300365180823}
+  m_GameObject: {fileID: 4517113672507132958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.323332, y: 11.747946, z: -2.857329}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1771932470201003794
+--- !u!114 &5045274386700318576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516722300365180823}
+  m_GameObject: {fileID: 4517113672507132958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec573d8cf14b34f978eaee64a6ab6461, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e830046076ba4977908a5775d04e8b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: 
-  bulletPrefab: {fileID: 8429541275457313382, guid: 4eb44a96381d54be698ff95cf3c40487, type: 3}
+  bulletPrefab: {fileID: 7834773554178576393, guid: 3511a54da8b40490994b0025aa495fec, type: 3}
   barrelTransform: {fileID: 0}
   bulletParent: {fileID: 0}
-  fireRate: 1
-  damage: 10
   bulletHitMissDistance: 25
+  fireRate: 25

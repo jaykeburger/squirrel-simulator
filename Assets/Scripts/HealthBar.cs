@@ -7,7 +7,6 @@ public class HealthBar : MonoBehaviour
 {
     private Slider slider;
     public Text healthCounter;
-    public GameObject playerState;
     private float currentHealth, maxHealth;
 
     void Awake()
@@ -17,8 +16,8 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        currentHealth = playerState.GetComponent<PlayerState>().currentHealth;
-        maxHealth = playerState.GetComponent<PlayerState>().maxHealth;
+        currentHealth = GlobalValues.currentHealth;
+        maxHealth = GlobalValues.maxHealth;
 
         float fillValue = currentHealth /maxHealth;
         slider.value = fillValue;
