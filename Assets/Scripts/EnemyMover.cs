@@ -51,7 +51,7 @@ public class EnemyMover : MonoBehaviour
     private IEnumerator DelaySpeed()
     {
         yield return new WaitForSeconds(3f);
-        chaseSpeed = 30;
+        chaseSpeed = 10;
     } 
     private void Patrol()
     {
