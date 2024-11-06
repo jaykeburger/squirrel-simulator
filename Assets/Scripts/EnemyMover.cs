@@ -29,6 +29,7 @@ public class EnemyMover : MonoBehaviour
         // If touched player, then slow down.
         if (other.CompareTag("Player"))
         {
+            PlayerState.Instance.DecreaseHealth();
             chaseSpeed = 0;
             StartCoroutine(DelaySpeed());
         }
@@ -36,7 +37,7 @@ public class EnemyMover : MonoBehaviour
     private IEnumerator DelaySpeed()
     {
         yield return new WaitForSeconds(3f);
-        chaseSpeed = 10;
+        chaseSpeed = 20;
     } 
     
     // Update is called once per frame

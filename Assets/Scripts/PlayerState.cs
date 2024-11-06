@@ -10,6 +10,7 @@ public class PlayerState : MonoBehaviour
 
     //----- Player Health ------//
     private bool isHealing = false;
+    public float healthDamage = 10.0f;
 
     //----- Player Stamina -----//
     public float staminaRecoveryRate = 5.0f;
@@ -37,10 +38,10 @@ public class PlayerState : MonoBehaviour
     void Update()
     {
         // Simulate taking damage with K key
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            DecreaseHealth(10);
-        }   
+        // if (Input.GetKeyDown(KeyCode.K))
+        // {
+        //     DecreaseHealth(10);
+        // }   
         if (GlobalValues.currentHealth == 0)
         {
             GlobalValues.currentHealth = GlobalValues.maxHealth;
@@ -55,9 +56,9 @@ public class PlayerState : MonoBehaviour
         }
     }
 
-    void DecreaseHealth(int amount)
+    public void DecreaseHealth()
     {
-        GlobalValues.currentHealth -= amount;
+        GlobalValues.currentHealth -= healthDamage;
     }
 
     IEnumerator RecoverHealth()

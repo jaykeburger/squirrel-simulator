@@ -493,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5260d5975cde348f7b8ddb8e03e8472c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthDamage: 10
   staminaRecoveryRate: 5
 --- !u!4 &81815727
 Transform:
@@ -5939,6 +5940,10 @@ PrefabInstance:
     - target: {fileID: 3449110475437474908, guid: 3668b26287150434cb383bc17b95014b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981370688542066399, guid: 3668b26287150434cb383bc17b95014b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6089111021168481358, guid: 3668b26287150434cb383bc17b95014b, type: 3}
       propertyPath: m_Name
