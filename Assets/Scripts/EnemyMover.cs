@@ -27,12 +27,18 @@ public class EnemyMover : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // If touched player, then slow down.
-        if (other.gameObject == GameObject.FindWithTag("Player"))
+        if (other.CompareTag("Player"))
         {
             chaseSpeed = 0;
             StartCoroutine(DelaySpeed());
         }
     }
+
+    private IEnumerator DelaySpeed()
+    {
+        yield return new WaitForSeconds(3f);
+        chaseSpeed = 30;
+    } 
 
     // Update is called once per frame
     void Update()
@@ -48,11 +54,6 @@ public class EnemyMover : MonoBehaviour
         }
     }
 
-    private IEnumerator DelaySpeed()
-    {
-        yield return new WaitForSeconds(3f);
-        chaseSpeed = 30;
-    } 
     private void Patrol()
     {
         float leftBound = spawnPosition.x - patrolRange;
@@ -83,6 +84,7 @@ public class EnemyMover : MonoBehaviour
     private void ChasePlayer()
     {
         Vector3 direction = (player.position - transform.position).normalized;
+        direction.y = 0f;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7 * Time.deltaTime);
         transform.position += direction * chaseSpeed * Time.deltaTime;

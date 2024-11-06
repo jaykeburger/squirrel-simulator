@@ -5,8 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class BackToMain : MonoBehaviour
 {
+    [SerializeField] private GameObject asyncManager;
     public void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("first-scene");
+        AsyncLoader sceneLoader = asyncManager.GetComponent<AsyncLoader>();
+        if (sceneLoader != null)
+        {
+            sceneLoader.LoadScene("first-scene");
+        }
+        else
+        {
+            Debug.LogError("sceneLoader not found on this GameObject.");
+        }
     }
 }
