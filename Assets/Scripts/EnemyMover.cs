@@ -33,13 +33,12 @@ public class EnemyMover : MonoBehaviour
             StartCoroutine(DelaySpeed());
         }
     }
-
     private IEnumerator DelaySpeed()
     {
         yield return new WaitForSeconds(3f);
-        chaseSpeed = 30;
+        chaseSpeed = 10;
     } 
-
+    
     // Update is called once per frame
     void Update()
     {
