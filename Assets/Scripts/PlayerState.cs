@@ -15,6 +15,11 @@ public class PlayerState : MonoBehaviour
     //----- Player Stamina -----//
     public float staminaRecoveryRate = 5.0f;
 
+    //----- Damage Sound -----//
+    [SerializeField]
+    private AudioClip damageClip;  // Drag your damage sound clip here in the Inspector
+    private AudioSource damageSound; // Audio source for playing damage sound
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -33,6 +38,11 @@ public class PlayerState : MonoBehaviour
         GlobalValues.currentStamina = Mathf.Min(GlobalValues.currentStamina, GlobalValues.maxStamina);
         // currentHealth = maxHealth;
         // currentStamina = maxStamina;
+
+         // Initialize and configure the damage sound
+        damageSound = gameObject.AddComponent<AudioSource>();
+        damageSound.clip = damageClip;
+        damageSound.playOnAwake = false;
     }
 
     void Update()
@@ -58,6 +68,11 @@ public class PlayerState : MonoBehaviour
 
     public void DecreaseHealth()
     {
+        // Play the damage sound when health is decreased
+        if (damageSound != null && damageSound.clip != null)
+        {
+            damageSound.Play();
+        }
         GlobalValues.currentHealth -= healthDamage;
     }
 

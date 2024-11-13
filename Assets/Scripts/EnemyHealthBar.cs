@@ -13,12 +13,30 @@ public class EnemyHealthBar : MonoBehaviour
     public ParticleSystem deathEffect;
 
 
+    [SerializeField]
+    private AudioClip DamageClip;
+
+    [SerializeField]
+    private AudioClip DeathClip;
+
+    private AudioSource DamageSound; // Sound for taking damage
+    private AudioSource DeathSound; // Sound for death
+
     // Start is called before the first frame update
     private void Start()
     {
         currenHealth = maxHealth;
         healthBar.value = currenHealth;
         enemyController = FindAnyObjectByType<GenerateEnemies>(); // Get the object that holds the GenerateEnemies script.
+
+        DamageSound = gameObject.AddComponent<AudioSource>();
+        DeathSound = gameObject.AddComponent<AudioSource>();
+
+        DamageSound.clip = DamageClip;
+        DeathSound.clip = DeathClip;
+        DamageSound.playOnAwake = false;
+        DeathSound.playOnAwake = false;
+
     }
 
     // Update is called once per frame
@@ -29,14 +47,34 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void takeDamge(int amount)
     {
+        if (DamageSound != null && DamageSound.clip != null)
+        {
+            DamageSound.Play(); // Play damage sound
+        }    
         currenHealth -= amount;
+     
         if (currenHealth <= 0)
         {
-            Vector3 enemyPos = transform.position;
+            PlayDeathSound(); // Call method to handle death sound
             enemyController.removeEnemyPosition(gameObject);
-            gameObject.SetActive(false); // Deactivate enemy when current health reaches 0
+            gameObject.SetActive(false); // Deactivate enemy immediately
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             currenHealth = maxHealth;
         }
+    }
+
+    private void PlayDeathSound()
+    {
+        // Create a temporary GameObject to play the death sound
+        GameObject deathSoundObject = new GameObject("DeathSound");
+        AudioSource deathAudioSource = deathSoundObject.AddComponent<AudioSource>();
+
+        // Configure the audio source
+        deathAudioSource.clip = DeathClip;
+        deathAudioSource.playOnAwake = false;
+        deathAudioSource.Play();
+
+        // Destroy the temporary GameObject after the sound finishes playing
+        Destroy(deathSoundObject, DeathClip.length);
     }
 }

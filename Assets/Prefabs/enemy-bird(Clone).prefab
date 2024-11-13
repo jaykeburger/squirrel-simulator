@@ -191,6 +191,7 @@ MonoBehaviour:
   chaseTime: 5
   cooldownTime: 5
   waypoints: []
+  diveAttackClip: {fileID: 8300000, guid: a48385966f36dbd4a93bb70cefa32031, type: 3}
 --- !u!1 &5422793288685656803
 GameObject:
   m_ObjectHideFlags: 0
