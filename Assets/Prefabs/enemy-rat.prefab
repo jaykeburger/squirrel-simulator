@@ -378,6 +378,8 @@ MonoBehaviour:
   maxHealth: 100
   currenHealth: 0
   deathEffect: {fileID: 8674745909001448275, guid: f23c9661d880a461aa6c788491c7a445, type: 3}
+  DamageClip: {fileID: 8300000, guid: 80f4517143660194db266021aaaffdd4, type: 3}
+  DeathClip: {fileID: 8300000, guid: 71356d70dd86fb24b91d4c444365b391, type: 3}
 --- !u!1 &6761793350537765610
 GameObject:
   m_ObjectHideFlags: 0
