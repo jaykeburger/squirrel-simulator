@@ -190,7 +190,10 @@ public class PlayerController : MonoBehaviour
             currentSpeed = walkSpeed;
             if (!sprintAction.IsPressed())
             {
-                PlayerState.Instance.RecoverStamina(Time.deltaTime); //Recovery stamina if not sprinting
+                if(PlayerState.Instance != null)
+                {
+                    PlayerState.Instance.RecoverStamina(Time.deltaTime); //Recovery stamina if not sprinting
+                }
             }
             if (!moveAudioSource.isPlaying && input != Vector2.zero && !PauseScript.GameIsPause) // Play move sound when walking
             {
