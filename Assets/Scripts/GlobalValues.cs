@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class GlobalValues
@@ -13,4 +14,7 @@ public static class GlobalValues
     // Values for bullet count
     public static int acornCount = 0;
     public static int rockCount = 0;
+
+    // Values for inventory
+    public static Dictionary<int, string> GlobalInventory = new();
 }
