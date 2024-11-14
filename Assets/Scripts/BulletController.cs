@@ -34,8 +34,10 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        //Debug.Log("Hit object with tag: " + other.gameObject.tag);
         if (other.collider.CompareTag("Enemy"))
         {
+            //Debug.LogError("Enemy Hit");
             Transform enemyTransform = other.collider.transform.parent;
 
             // Get the EnemyHealthBar component from the parent
