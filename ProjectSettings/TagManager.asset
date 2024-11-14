@@ -8,6 +8,7 @@ TagManager:
   - Acorn
   - Rock
   - Enemy
+  - Slot
   layers:
   - Default
   - TransparentFX
