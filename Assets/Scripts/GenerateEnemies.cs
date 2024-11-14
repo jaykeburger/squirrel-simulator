@@ -67,7 +67,7 @@ public class GenerateEnemies : MonoBehaviour
         {
             xPos = Random.Range(0, 215);
             zPos = Random.Range(-180, 55);
-            spawnPosition = new Vector3 (xPos, 0.6f, zPos);
+            spawnPosition = new Vector3 (xPos, 0f, zPos);
             validPos = true;
             foreach (Vector3 pos in spawnPositions)
             {

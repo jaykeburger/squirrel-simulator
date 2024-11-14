@@ -265,6 +265,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /*
+    FUNCTIONS FOR DASHING===========================================================
+    */
     private void tryDash()
     {
         if (this == null) Debug.Log("Object destroyed");

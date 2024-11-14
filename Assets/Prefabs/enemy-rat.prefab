@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 1639924861805784140}
   - component: {fileID: 7727505524278640990}
   - component: {fileID: 670213422443245415}
+  - component: {fileID: 268963821810095789}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Enemy
@@ -211,6 +212,33 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: e3731920d0f5b2242820a5ba9db60559, type: 3}
+--- !u!54 &268963821810095789
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637354894675442100}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 36
+  m_CollisionDetection: 0
 --- !u!1 &4054293676908168625
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +316,7 @@ Transform:
   m_GameObject: {fileID: 4801335018289826605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.71954644, z: -0, w: -0.69444436}
-  m_LocalPosition: {x: 149.67795, y: -0.55, z: -34.879314}
+  m_LocalPosition: {x: 149.67795, y: -0.04, z: -34.879314}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -315,8 +343,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.5344088, y: 4.6317053, z: 11.810666}
+  m_Center: {x: 0.07057942, y: 1.815702, z: -1.3106499}
 --- !u!114 &2538934773406921617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +378,8 @@ MonoBehaviour:
   maxHealth: 100
   currenHealth: 0
   deathEffect: {fileID: 8674745909001448275, guid: f23c9661d880a461aa6c788491c7a445, type: 3}
+  DamageClip: {fileID: 8300000, guid: 80f4517143660194db266021aaaffdd4, type: 3}
+  DeathClip: {fileID: 8300000, guid: 71356d70dd86fb24b91d4c444365b391, type: 3}
 --- !u!1 &6761793350537765610
 GameObject:
   m_ObjectHideFlags: 0

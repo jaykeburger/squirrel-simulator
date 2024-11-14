@@ -10,12 +10,14 @@ public class BirdMover : MonoBehaviour
     public float chaseTime = 5f;  // Time to chase before diving
     public float cooldownTime = 3f;  // Cooldown time after attacking before chasing again
     public Vector3[] waypoints;
+    public AudioClip diveAttackClip; // Dive attack sound clip
 
     private int currentWaypointIndex = 0;
     private float chaseTimer = 0;
     private float cooldownTimer = 0;
     private bool isDiving = false;
     private bool isCoolingDown = false;
+    private AudioSource audioSource; // Audio source for playing dive sound
 
     private void Start()
     {
@@ -32,6 +34,10 @@ public class BirdMover : MonoBehaviour
                 new Vector3(-100, 10, -100)
             };
         }
+         // Initialize the AudioSource for dive attack sound
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = diveAttackClip;
+        audioSource.playOnAwake = false;
     }
 
     private void Update()
@@ -87,6 +93,11 @@ public class BirdMover : MonoBehaviour
         {
             isDiving = true;
             chaseTimer = 0;
+        }
+        // Play the dive attack sound when starting the dive
+        if (audioSource != null && audioSource.clip != null)
+        {
+                audioSource.Play();
         }
     }
 
