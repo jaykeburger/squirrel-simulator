@@ -3,49 +3,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class InventoryItems : MonoBehaviour, IPointerClickHandler
+/// <summary>
+/// This script is attached to the item that is in the inventory.
+/// Add +5 health to player when double click the item
+/// </summary>
+public class InventoryItems : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     // Consumption parameters
     private GameObject itemPendingForConsumption;
-    private float lastClickTime = 0f;
-    private float doubleClickThreshold = 0.5f;
+    private const float doubleClickThreshold = 0.2f;
+    private float lastClickTime;
 
-    // ======================== Functions for comsumming item ===========================
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("Clicking bread");
-            if (Time.time - lastClickTime <= doubleClickThreshold)
+            float timeSinceLastClick = Time.unscaledTime - lastClickTime;
+            lastClickTime = Time.unscaledTime;
+            if (timeSinceLastClick < doubleClickThreshold)
             {
-                Debug.Log("Enter clicking");
-                itemPendingForConsumption = gameObject;
                 if (GlobalValues.currentHealth < GlobalValues.maxHealth)
                 {
-                    Debug.Log("Healing");
                     GlobalValues.currentHealth += 5f;
+
+                    // Make sure that we choose the lasted object that we click to destroy later,
+                    // if not, the function will destroy every object in the inventory that we click on.
+                    itemPendingForConsumption = gameObject; 
                 }
             }
-            DestroyImmediate(gameObject);
-            // InventorySystem.instance.ReCalculateList();
-        }
-        else
-        {
-            Debug.Log("Single click");
         }
     }
 
-    // public void OnPointerUp(PointerEventData eventData)
-    // {
-    //     if (eventData.button == PointerEventData.InputButton.Left)
-    //     {
-    //         // Make sure we know which item should be consummed first
-    //         if (itemPendingForConsumption == gameObject)
-    //         {
-    //             DestroyImmediate(gameObject);
-    //             // InventorySystem.instance.ReCalculateList();
-    //         }
-    //     }
-    // }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            if (itemPendingForConsumption == gameObject)
+            {
+                // Delete the item from the Global inventory memory
+                GameObject parentSlot = transform.parent.gameObject;
+                if (parentSlot == null)
+                {
+                    Debug.Log("parent object is null");
+                }
+                else
+                {
+                    int idx = parentSlot.GetComponent<ItemSlot>().slotID;
+                    Debug.Log("Slot index when delete: " + idx);
+
+                    GlobalValues.GlobalInventory.Remove(idx);
+                }
+
+                DestroyImmediate(gameObject);
+            }
+        }
+    }
 }

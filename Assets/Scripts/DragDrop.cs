@@ -14,7 +14,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
  
     public static GameObject itemBeingDragged;
     Vector3 startPosition;
-    Transform startParent;
+    public static Transform startParent;
     private void Awake()
     {
         
@@ -44,7 +44,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             transform.position = startPosition;
             transform.SetParent(startParent);
- 
         }
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
