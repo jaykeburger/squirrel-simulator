@@ -147,7 +147,7 @@ public class InventorySystem : MonoBehaviour
             Time.timeScale = 0f;
             PauseScript.GameIsPause = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && isOpen)
+        else if (Input.GetKeyDown(KeyCode.Tab) && isOpen || !PauseScript.GameIsPause)
         {
             parentCanvas.SetActive(false);
             isOpen = false;

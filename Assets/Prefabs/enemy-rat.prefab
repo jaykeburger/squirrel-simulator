@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1893615003167917587}
   - component: {fileID: 9115104065262708050}
   - component: {fileID: 6706866912920246851}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyHealthCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 7727505524278640990}
   - component: {fileID: 670213422443245415}
   - component: {fileID: 268963821810095789}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1906203285174361158}
   - component: {fileID: 8616230266842064968}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 2191820201638497887}
   - component: {fileID: 2538934773406921617}
   - component: {fileID: 3831253611665160912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemy-rat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8064328518896476370}
   - component: {fileID: 6406228168552654551}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 962817905224915626}
   - component: {fileID: 1042996272760570887}
   - component: {fileID: 7685458101201074393}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
