@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: df764cbf4b6536f4d915f006b8909a1a
+=======
+guid: a4cf09372243f0e4b85f831ad888813f
+>>>>>>> a0e9fd39be67d8823b0f6437e3c1515a73200f56
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,6 +35,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
+<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: Scene
@@ -61,6 +66,9 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
+=======
+    clipAnimations: []
+>>>>>>> a0e9fd39be67d8823b0f6437e3c1515a73200f56
     isReadable: 0
   meshes:
     lODScreenPercentages: []

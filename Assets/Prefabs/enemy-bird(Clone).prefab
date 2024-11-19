@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4535512002932966227}
   - component: {fileID: 2916970644838929093}
   - component: {fileID: 8401547208488162039}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Britney
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 7575397540193670778}
   - component: {fileID: -6411117593992038996}
   - component: {fileID: 302573477385453619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemy-bird(Clone)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837765400224688294}
   - component: {fileID: 1947971132304009452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6143787991565415893}
   - component: {fileID: 2489631151765461418}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,9 +397,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7577436328076126449}
     m_Modifications:
+    - target: {fileID: 1452183530651405400, guid: a101e4bb3c8be43c2af19593ca51f27b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1716128701182009514, guid: a101e4bb3c8be43c2af19593ca51f27b, type: 3}
       propertyPath: m_Name
       value: EnemyHealthCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716128701182009514, guid: a101e4bb3c8be43c2af19593ca51f27b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751935103479720977, guid: a101e4bb3c8be43c2af19593ca51f27b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4062907660430837541, guid: a101e4bb3c8be43c2af19593ca51f27b, type: 3}
       propertyPath: DeathClip
@@ -500,6 +512,10 @@ PrefabInstance:
     - target: {fileID: 7149957499517415907, guid: a101e4bb3c8be43c2af19593ca51f27b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192506841380117647, guid: a101e4bb3c8be43c2af19593ca51f27b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

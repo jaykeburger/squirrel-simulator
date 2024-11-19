@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: bbbe2fca421a4894bb23755e5f4ecdf8
+=======
+guid: 06ee0f44aa902da468f9ea84087210f2
+>>>>>>> a0e9fd39be67d8823b0f6437e3c1515a73200f56
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -35,7 +39,11 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
+<<<<<<< HEAD
     globalScale: 4
+=======
+    globalScale: 1
+>>>>>>> a0e9fd39be67d8823b0f6437e3c1515a73200f56
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -90,7 +98,11 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+<<<<<<< HEAD
     globalScale: 0.04
+=======
+    globalScale: 1
+>>>>>>> a0e9fd39be67d8823b0f6437e3c1515a73200f56
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

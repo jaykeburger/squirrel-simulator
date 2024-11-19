@@ -15,6 +15,12 @@ public class CountBullet : MonoBehaviour
         rockText.text = "Rock: " + GlobalValues.rockCount.ToString();
     }
 
+    void Update()
+    {
+        acornText.text = "Acorn: " + GlobalValues.acornCount.ToString();
+        rockText.text = "Rock: " + GlobalValues.rockCount.ToString();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Acorn")
