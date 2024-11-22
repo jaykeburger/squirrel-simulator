@@ -12,14 +12,12 @@ using UnityEngine;
 public class WobbleEffect : MonoBehaviour
 {
     public Material _wobbleEffectMaterial;
-    private bool  _wobbleEffectActive = false;
     private float _frequency = 4f;
     private float _shift = 0f;
     private float _amplitude = 0f;
     private float _maxAmplitude = 0.05f;
     private float _shiftSpeed = 5f;
     private float _amplitudeSpeed = 0.025f;
-    private float elapsedTime = 0f;
     private const float wobbleDuration = 5f;
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
@@ -44,16 +42,11 @@ public class WobbleEffect : MonoBehaviour
 
     public void StartWobble()
     {
-        if (!_wobbleEffectActive)
+        if (!GlobalValues.wobbleEffectActive)
         {
-            _wobbleEffectActive = true;
+            GlobalValues.wobbleEffectActive = true;
             StartCoroutine(WobbleCoroutine());
         }
-    }
-
-    public void StopWobble()
-    {
-        _wobbleEffectActive = false;
     }
 
     private IEnumerator WobbleCoroutine()
@@ -66,7 +59,7 @@ public class WobbleEffect : MonoBehaviour
         // Start up wobble
         while (_amplitude < _maxAmplitude)
         {
-            if (_wobbleEffectActive && Time.time - startTime < wobbleDuration)
+            if (GlobalValues.wobbleEffectActive && Time.time - startTime < wobbleDuration)
             {
                 SetAmplitude(_amplitude);
                 SetShift(_shift);
@@ -75,7 +68,6 @@ public class WobbleEffect : MonoBehaviour
                 _shift += _shiftSpeed * Time.deltaTime;
                 _shift %= Mathf.PI * 2f;
 
-                Debug.Log(elapsedTime);
 
                 yield return null;
             }
@@ -86,25 +78,24 @@ public class WobbleEffect : MonoBehaviour
         }
         
         // Maintaining wobble effect
-        if (_wobbleEffectActive)
+        if (GlobalValues.wobbleEffectActive)
         {
             _amplitude = _maxAmplitude;
             SetAmplitude(_amplitude);
         }
 
-        while (_wobbleEffectActive && Time.time - startTime < wobbleDuration)
+        while (GlobalValues.wobbleEffectActive && Time.time - startTime < wobbleDuration)
         {
             SetShift(_shift);
             _shift += _shiftSpeed * Time.deltaTime;
             _shift %= Mathf.PI * 2f;
 
-            Debug.Log(elapsedTime);
             yield return null;
         }
 
         while (_amplitude > 0f)
         {
-            if (!_wobbleEffectActive || Time.time - startTime > wobbleDuration)
+            if (!GlobalValues.wobbleEffectActive || Time.time - startTime > wobbleDuration)
             {
                 SetAmplitude(_amplitude);
                 SetShift(_shift);
@@ -137,7 +128,7 @@ public class WobbleEffect : MonoBehaviour
         SetAmplitude(_amplitude);
         SetShift(_shift);
 
-        _wobbleEffectActive = false;
+        GlobalValues.wobbleEffectActive = false;
         enabled = false;
     }
 
@@ -146,6 +137,7 @@ public class WobbleEffect : MonoBehaviour
     {
         _amplitude = 0f;
         _shift = 0f;
+        GlobalValues.wobbleEffectActive= false;
 
         SetAmplitude(_amplitude);
         SetShift(_shift);

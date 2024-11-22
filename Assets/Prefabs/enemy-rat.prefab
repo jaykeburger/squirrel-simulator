@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d79802d5ac01c14a8726ae1290c1263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: -8679921383154817045, guid: a8f19ac5df461475e8ba473629583844, type: 3}
+  player: {fileID: -8679921383154817045, guid: b89553a2fe25e884ebb85f7d5a7b6311, type: 3}
   patrolRange: 10
   patrolSpeed: 5
   attackRange: 30

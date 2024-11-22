@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// This script is attached to the item that is in the inventory.
-/// Add +5 health to player when double click the item
+/// Add +5 (if bread) and -5 (if mushroom) health to player when double click the item
 /// </summary>
 public class InventoryItems : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -24,7 +24,12 @@ public class InventoryItems : MonoBehaviour, IPointerDownHandler, IPointerUpHand
             lastClickTime = Time.unscaledTime;
             if (timeSinceLastClick < doubleClickThreshold)
             {
-                if (GlobalValues.currentHealth < GlobalValues.maxHealth)
+                if (gameObject.name.Contains("Mushroom"))
+                {
+                    GlobalValues.currentHealth -= 5f;
+                    itemPendingForConsumption = gameObject;
+                }
+                else if (GlobalValues.currentHealth < GlobalValues.maxHealth)
                 {
                     GlobalValues.currentHealth += 5f;
 

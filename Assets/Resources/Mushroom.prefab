@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 6229347918191250108}
   - component: {fileID: 7058528730373869260}
   - component: {fileID: 2371601355333660922}
-  - component: {fileID: 3310960712096539668}
-  - component: {fileID: -3247233955161625240}
-  - component: {fileID: -2871605103402036971}
+  - component: {fileID: 1355732022983209249}
+  - component: {fileID: -3093049225125611120}
+  - component: {fileID: 1435855399618399884}
   m_Layer: 5
-  m_Name: Bread
+  m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4776298a570f34353950b3bc7a187c59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b09d75d1159d3458382890234778341b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab94a597058d4d01838cb090b9e0286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3310960712096539668
+--- !u!114 &1355732022983209249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b9e405ba9664cc2a71125228c9d156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Bread. Double Click To Consume
---- !u!61 &-3247233955161625240
+  message: Mushroom. Double Click To Consume
+--- !u!61 &-3093049225125611120
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +175,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &-2871605103402036971
+--- !u!50 &1435855399618399884
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

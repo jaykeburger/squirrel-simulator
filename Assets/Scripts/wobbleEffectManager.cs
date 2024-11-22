@@ -11,35 +11,19 @@ using UnityEngine.InputSystem;
 public class wobbleEffectManager : MonoBehaviour
 {
     public WobbleEffect _wobbleEffect;
-    private Keyboard _keyboard;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _keyboard = Keyboard.current;
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter(Collider other)
     {
-        if (_keyboard.pKey.wasPressedThisFrame)
+        if (other.CompareTag("Player"))
         {
             WobbleOn();
         }
-        else if (_keyboard.lKey.wasPressedThisFrame)
-        {
-            WobbleOff();
-        }
     }
 
-    private void WobbleOn()
+    public void WobbleOn()
     {
         Debug.Log("Wobble on");
         _wobbleEffect.enabled = true;
         _wobbleEffect.StartWobble();
-    }
-
-    private void WobbleOff()
-    {
-        _wobbleEffect.StopWobble();
     }
 }

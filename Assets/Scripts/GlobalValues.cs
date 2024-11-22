@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using System.Net.NetworkInformation;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public static class GlobalValues
@@ -17,4 +20,11 @@ public static class GlobalValues
 
     // Values for inventory
     public static Dictionary<int, string> GlobalInventory = new();
+
+    //Bool for wobble effect
+    public static bool wobbleEffectActive = false;
+
+    //Bool values for trash bin generate system
+    public static bool binIsChose = false;
+    public static int binIsChoseID = -1;
 }

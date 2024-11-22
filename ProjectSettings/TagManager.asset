@@ -9,6 +9,7 @@ TagManager:
   - Rock
   - Enemy
   - Slot
+  - TrashBin
   layers:
   - Default
   - TransparentFX
