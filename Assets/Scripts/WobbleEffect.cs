@@ -5,6 +5,10 @@ using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 
+/// <summary>
+/// This script is used to start the coroutine of the wobble effect 
+/// when player eats or touches the poison mushroom.
+/// </summary>
 public class WobbleEffect : MonoBehaviour
 {
     public Material _wobbleEffectMaterial;
@@ -17,18 +21,6 @@ public class WobbleEffect : MonoBehaviour
     private float _amplitudeSpeed = 0.025f;
     private float elapsedTime = 0f;
     private const float wobbleDuration = 5f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
@@ -69,9 +61,12 @@ public class WobbleEffect : MonoBehaviour
         
         SetFrequency(_frequency);
 
+        float startTime = Time.time;
+
+        // Start up wobble
         while (_amplitude < _maxAmplitude)
         {
-            if (_wobbleEffectActive)
+            if (_wobbleEffectActive && Time.time - startTime < wobbleDuration)
             {
                 SetAmplitude(_amplitude);
                 SetShift(_shift);
@@ -80,7 +75,6 @@ public class WobbleEffect : MonoBehaviour
                 _shift += _shiftSpeed * Time.deltaTime;
                 _shift %= Mathf.PI * 2f;
 
-                elapsedTime += Time.deltaTime;
                 Debug.Log(elapsedTime);
 
                 yield return null;
@@ -91,26 +85,26 @@ public class WobbleEffect : MonoBehaviour
             }
         }
         
+        // Maintaining wobble effect
         if (_wobbleEffectActive)
         {
             _amplitude = _maxAmplitude;
             SetAmplitude(_amplitude);
         }
 
-        while (_wobbleEffectActive)
+        while (_wobbleEffectActive && Time.time - startTime < wobbleDuration)
         {
             SetShift(_shift);
             _shift += _shiftSpeed * Time.deltaTime;
             _shift %= Mathf.PI * 2f;
 
-            elapsedTime += Time.deltaTime;
             Debug.Log(elapsedTime);
             yield return null;
         }
 
         while (_amplitude > 0f)
         {
-            if (!_wobbleEffectActive)
+            if (!_wobbleEffectActive || Time.time - startTime > wobbleDuration)
             {
                 SetAmplitude(_amplitude);
                 SetShift(_shift);
@@ -127,15 +121,33 @@ public class WobbleEffect : MonoBehaviour
             }
         }
 
-        if (!_wobbleEffectActive && elapsedTime > wobbleDuration)
-        {
-            _shift = 0f;
-            _amplitude = 0f;
-            SetAmplitude(_amplitude);
-            SetShift(_shift);
-            elapsedTime = 0f;
+        // if (!_wobbleEffectActive && elapsedTime > wobbleDuration)
+        // {
+        //     _shift = 0f;
+        //     _amplitude = 0f;
+        //     SetAmplitude(_amplitude);
+        //     SetShift(_shift);
+        //     elapsedTime = 0f;
 
-            enabled = false;
-        }
+        //     enabled = false;
+        // }
+
+        _shift = 0;
+        _amplitude = 0f;
+        SetAmplitude(_amplitude);
+        SetShift(_shift);
+
+        _wobbleEffectActive = false;
+        enabled = false;
+    }
+
+    // Reset the variables when the editor halts the excution.
+    private void OnDisable()
+    {
+        _amplitude = 0f;
+        _shift = 0f;
+
+        SetAmplitude(_amplitude);
+        SetShift(_shift);
     }
 }
