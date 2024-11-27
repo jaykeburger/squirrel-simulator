@@ -154,6 +154,9 @@ public class InventorySystem : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
             PauseScript.GameIsPause = false;
+
+            // Disable Tooltip message when using Tab.
+            ToolTipManager.instance.HideToolTip();
         }
     }
 }

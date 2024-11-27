@@ -45,7 +45,7 @@ public class InteractableObject : MonoBehaviour
             if (binID == GlobalValues.binIsChoseID)
             {
                 Debug.Log("Hit the right bin: " + randomItemName);
-                int randomItem = Random.Range(0,2); // Range of items list
+                int randomItem = Random.Range(0,items.Count); // Range of items list
                 randomItemName = items[randomItem];
                 Debug.Log(randomItemName);
                 InventorySystem.instance.AddToInventory(randomItemName);
