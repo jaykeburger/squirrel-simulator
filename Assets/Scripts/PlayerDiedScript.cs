@@ -10,11 +10,26 @@ public class PlayerDiedScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GlobalValues.currentHealth == 0)
+        if (GlobalValues.currentHealth <= 0)
         {
             DiedMenu.SetActive(true);
+
+            // Stop time
+            PauseScript.GameIsPause = true;
             Time.timeScale = 0f;
+
+            // Unlock the cursor for menu navigation
             Cursor.lockState = CursorLockMode.None;
+
+            // Stop animations if applicable
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.enabled = false;
+            }
+
+            // Log the death event
+            Debug.Log("You died");
         }
     }
     public void QuitGame()

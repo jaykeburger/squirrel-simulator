@@ -49,7 +49,7 @@ public class PlayerState : MonoBehaviour
     {
         if (GlobalValues.currentHealth == 0)
         {
-            GlobalValues.currentHealth = GlobalValues.maxHealth;
+            // GlobalValues.currentHealth = GlobalValues.maxHealth;
         }
         
         if (GlobalValues.currentHealth < GlobalValues.maxHealth)
