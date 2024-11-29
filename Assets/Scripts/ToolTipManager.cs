@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// This script responsible for making the panel for Tooltip appear when
+/// hover on the item in the inventory. This script is attached to the 
+/// InventorySystem Game Object.
+/// </summary>
 public class ToolTipManager : MonoBehaviour
 {
     public static ToolTipManager instance;

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6229347918191250108}
   - component: {fileID: 7058528730373869260}
   - component: {fileID: 2371601355333660922}
-  - component: {fileID: 3310960712096539668}
   - component: {fileID: -3247233955161625240}
   - component: {fileID: -2871605103402036971}
   m_Layer: 5
@@ -117,19 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab94a597058d4d01838cb090b9e0286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3310960712096539668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4997006823897662958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b9e405ba9664cc2a71125228c9d156, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: Bread. Double Click To Consume
 --- !u!61 &-3247233955161625240
 BoxCollider2D:
   m_ObjectHideFlags: 0

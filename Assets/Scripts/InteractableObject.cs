@@ -10,10 +10,11 @@ using UnityEngine.Pool;
 public class InteractableObject : MonoBehaviour
 {
     [SerializeField] public bool playerInRange;
+    public GameObject InteractableUI;
     public int binID;
 
     public List<string> items = new List<string>{"Bread", "Mushroom"};
-    public string randomItemName;
+
     public void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
@@ -27,6 +28,7 @@ public class InteractableObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            InteractableUI.SetActive(true);
         }
     }
 
@@ -35,6 +37,7 @@ public class InteractableObject : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            InteractableUI.SetActive(false);
         }
     }
 
@@ -44,9 +47,9 @@ public class InteractableObject : MonoBehaviour
         {
             if (binID == GlobalValues.binIsChoseID)
             {
-                Debug.Log("Hit the right bin: " + randomItemName);
+                Debug.Log("Hit the right bin");
                 int randomItem = Random.Range(0,items.Count); // Range of items list
-                randomItemName = items[randomItem];
+                string randomItemName = items[randomItem];
                 Debug.Log(randomItemName);
                 InventorySystem.instance.AddToInventory(randomItemName);
                 GlobalValues.binIsChose = false;

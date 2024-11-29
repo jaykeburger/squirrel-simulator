@@ -51,8 +51,15 @@ public class TrashBinGenerateSystem : MonoBehaviour
         {
             if (child.CompareTag("TrashBin"))
             {
+                Debug.Log("Found bin");
                 trashBinList.Add(child.gameObject);
-                child.gameObject.AddComponent<InteractableObject>().binID = idx; //Tag index for each trash bin child
+                InteractableObject interactable = child.gameObject.GetComponent<InteractableObject>();
+                if (interactable == null)
+                {
+                    interactable = child.gameObject.AddComponent<InteractableObject>();
+                    // Add component if it doesn't exist in the trash bin
+                }
+                interactable.binID = idx; //Tag index for each trash bin child
                 idx ++;
             }
         }
