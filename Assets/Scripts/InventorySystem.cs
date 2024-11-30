@@ -8,6 +8,8 @@ using UnityEngine.EventSystems;
 /// This script is attached to Inventory system GameObject.
 /// Hide and show the inventory canvas using Tab button.
 /// Adding object into the inventory.
+/// Save and load GlobalInventory in GlobalValues
+/// Update inventory slot when item is dragged to a new slot
 /// </summary>
 public class InventorySystem : MonoBehaviour
 {
@@ -53,14 +55,9 @@ public class InventorySystem : MonoBehaviour
             {
                 slotList.Add(child.gameObject);
                 child.gameObject.AddComponent<ItemSlot>().slotID = idx; // Assign a slot ID for this slot
-                Debug.Log("idx when generate slot " + idx);
                 idx ++;
             }
         }
-        // foreach(GameObject entry in slotList)
-        // {
-        //     Debug.Log(entry.GetInstanceID());
-        // }
     }
 
     public void AddToInventory(string itemName)
@@ -93,7 +90,7 @@ public class InventorySystem : MonoBehaviour
 
     public void LoadInventory()
     {
-        Debug.Log(GlobalValues.GlobalInventory.Count);
+        Debug.Log("Global inventory count: " + GlobalValues.GlobalInventory.Count);
 
         if (GlobalValues.GlobalInventory.Count == 0)
         {
@@ -103,6 +100,7 @@ public class InventorySystem : MonoBehaviour
         {
             // Debug.Log(entry.Key);
             int retrievedID = entry.Key;
+            Debug.Log("ID when loading inventory: " + entry.Key);
             GameObject slot = slotList.Find(s => s.GetComponent<ItemSlot>().slotID == retrievedID);
             if (slot == null)
             {
@@ -110,6 +108,7 @@ public class InventorySystem : MonoBehaviour
             }
             else
             {
+                Debug.Log("Item name at loading slot: " + GlobalValues.GlobalInventory[entry.Key]);
                 GameObject prefab = Resources.Load<GameObject>(entry.Value);
                 if (prefab == null)
                 {
@@ -128,10 +127,13 @@ public class InventorySystem : MonoBehaviour
     public void UpdateGlobalInventory(GameObject item, GameObject newSlot, GameObject prevSlot)
     {
         int prevIdx = prevSlot.GetComponent<ItemSlot>().slotID;
-        GlobalValues.GlobalInventory[prevIdx] = null;
+        Debug.Log("Previous slot id: " + prevIdx);
+        string newItemName = GlobalValues.GlobalInventory[prevIdx];
+        Debug.Log("Item's name at new slot: " + newItemName);
+        GlobalValues.GlobalInventory.Remove(prevIdx);
         int newIdx = newSlot.GetComponent<ItemSlot>().slotID;
-        string newItemName = item.ToString();
         GlobalValues.GlobalInventory[newIdx] = newItemName;
+        Debug.Log("new slot id: " + newIdx);
     }
 
     // Update is called once per frame
@@ -145,13 +147,16 @@ public class InventorySystem : MonoBehaviour
             Time.timeScale = 0f;
             PauseScript.GameIsPause = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && isOpen)
+        else if (Input.GetKeyDown(KeyCode.Tab) && isOpen || !PauseScript.GameIsPause)
         {
             parentCanvas.SetActive(false);
             isOpen = false;
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
             PauseScript.GameIsPause = false;
+
+            // Disable Tooltip message when using Tab.
+            ToolTipManager.instance.HideToolTip();
         }
     }
 }

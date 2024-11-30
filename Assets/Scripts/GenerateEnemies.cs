@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class GenerateEnemies : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public Transform player;
+    public GameObject player;
     public int maxEnemies;
     public int enemyCount;
     public int spawnRadius;
@@ -20,7 +20,6 @@ public class GenerateEnemies : MonoBehaviour
     private int zPos;
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(EnemyDrop());
     }
 
@@ -73,7 +72,7 @@ public class GenerateEnemies : MonoBehaviour
             {
                 // Make sure each enemy spawn with distance between them and far from player when spawn (attack range is 30, change if needed)
                 if (Vector3.Distance(spawnPosition, pos)< spawnRadius 
-                    && Vector3.Distance(spawnPosition, player.position) < 50) 
+                    && Vector3.Distance(spawnPosition, player.transform.position) < 50) 
                 {
                     validPos = false;
                     break; //Stop loop through each position and generate a new position.

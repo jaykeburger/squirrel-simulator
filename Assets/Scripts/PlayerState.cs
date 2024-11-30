@@ -47,14 +47,9 @@ public class PlayerState : MonoBehaviour
 
     void Update()
     {
-        // Simulate taking damage with K key
-        // if (Input.GetKeyDown(KeyCode.K))
-        // {
-        //     DecreaseHealth(10);
-        // }   
         if (GlobalValues.currentHealth == 0)
         {
-            GlobalValues.currentHealth = GlobalValues.maxHealth;
+            // GlobalValues.currentHealth = GlobalValues.maxHealth;
         }
         
         if (GlobalValues.currentHealth < GlobalValues.maxHealth)

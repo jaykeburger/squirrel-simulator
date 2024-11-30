@@ -40,6 +40,7 @@ public class PauseScript : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPause = true;
     }
+    
     public void QuitGame()
     {   
         Time.timeScale = 1f;

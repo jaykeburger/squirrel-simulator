@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class WeaponManager : MonoBehaviour
 {
     public BaseWeapon[] weapons; //Arrays of weapon
-    public int currentWeapon = 0;
+    public int currentWeapon = 0; // 0-SlingShot, 1-AcornGunMachine
     public static WeaponManager Instance { get; private set; }
     public Image weaponIcon; // UI Image to show current weapon
     public Sprite[] weaponIcons; // Array of sprites for weapon icons

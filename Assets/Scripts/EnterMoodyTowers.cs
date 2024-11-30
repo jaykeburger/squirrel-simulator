@@ -8,14 +8,21 @@ public class EnterMoodyTowers : MonoBehaviour
     [SerializeField] private GameObject asyncManager;
     public void OnTriggerEnter(Collider other)
     {
-        AsyncLoader sceneLoader = asyncManager.GetComponent<AsyncLoader>();
-        if (sceneLoader != null)
+        if (other.CompareTag("Player")) // Ensure the collider is the player
         {
-            sceneLoader.LoadScene("JimmyDorm");
-        }
-        else
-        {
-            Debug.LogError("sceneLoader not found on this GameObject.");
+            // Store the player's position
+            PlayerPosition.lastPlayerPosition = other.transform.position;
+
+            // Load the new scene
+            AsyncLoader sceneLoader = asyncManager.GetComponent<AsyncLoader>();
+            if (sceneLoader != null)
+            {
+                sceneLoader.LoadScene("JimmyDorm");
+            }
+            else
+            {
+                Debug.LogError("sceneLoader not found on this GameObject.");
+            }
         }
     }
 }
