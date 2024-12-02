@@ -11,18 +11,26 @@ public class EnteringPGH : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Ensure the collider is the player
         {
-            // Store the player's position
-            PlayerPosition.lastPlayerPosition = other.transform.position;
-
-            // Load the new scene
-            AsyncLoader sceneLoader = asyncManager.GetComponent<AsyncLoader>();
-            if (sceneLoader != null)
+            // Check if the first quest is completed
+            if (QuestManager.Instance != null && QuestManager.Instance.IsFirstQuestComplete)
             {
-                sceneLoader.LoadScene("PGH232");
+                // Store the player's position
+                PlayerPosition.lastPlayerPosition = other.transform.position;
+
+                // Load the new scene
+                AsyncLoader sceneLoader = asyncManager.GetComponent<AsyncLoader>();
+                if (sceneLoader != null)
+                {
+                    sceneLoader.LoadScene("PGH232");
+                }
+                else
+                {
+                    Debug.LogError("sceneLoader not found on this GameObject.");
+                }
             }
             else
             {
-                Debug.LogError("sceneLoader not found on this GameObject.");
+                Debug.Log("Quest not completed yet. Cannot enter PGH232.");
             }
         }
     }
