@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - Slot
   - TrashBin
+  - paper
+  - pencil
+  - jimmy
   layers:
   - Default
   - TransparentFX
