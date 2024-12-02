@@ -25,14 +25,14 @@ public class CountBullet : MonoBehaviour
     {
         if (other.transform.tag == "Acorn")
         {
-            GlobalValues.acornCount ++;
+            GlobalValues.acornCount +=5;
             acornText.text = "Acorn: " + GlobalValues.acornCount.ToString();
             Destroy(other.gameObject);
         }
 
         if (other.transform.tag == "Rock")
         {
-            GlobalValues.rockCount ++;
+            GlobalValues.rockCount +=3;
             rockText.text = "Rock: " + GlobalValues.rockCount.ToString();
             Destroy(other.gameObject);
         }
