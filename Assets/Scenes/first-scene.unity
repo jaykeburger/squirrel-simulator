@@ -1305,11 +1305,7 @@ Transform:
   m_GameObject: {fileID: 143456113}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13890937, y: -0.007950589, z: 0.00111526, w: 0.9902726}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 186.72905, y: 17.361673, z: -137.61449}
-=======
   m_LocalPosition: {x: 186.90991, y: 17.361673, z: -137.61159}
->>>>>>> d79e170c842d994b83d0fbcb87aa4ea0d366480e
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6039,11 +6035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 186.72905
-=======
       value: 186.90991
->>>>>>> d79e170c842d994b83d0fbcb87aa4ea0d366480e
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6051,11 +6043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD
-      value: -137.61449
-=======
       value: -137.61159
->>>>>>> d79e170c842d994b83d0fbcb87aa4ea0d366480e
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7386,11 +7374,7 @@ MonoBehaviour:
     m_DataPoints: []
   m_Spline: {fileID: 812958734}
   m_SegmentsPerMeter: 1
-<<<<<<< HEAD
-  m_Mesh: {fileID: 1832477360}
-=======
   m_Mesh: {fileID: 1650260187}
->>>>>>> d79e170c842d994b83d0fbcb87aa4ea0d366480e
   m_TextureScale: 1
   widthScale: 4.82
   asphaltMaterial: {fileID: 0}
@@ -7401,11 +7385,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812958730}
-<<<<<<< HEAD
-  m_Mesh: {fileID: 1832477360}
-=======
   m_Mesh: {fileID: 1650260187}
->>>>>>> d79e170c842d994b83d0fbcb87aa4ea0d366480e
 --- !u!23 &812958733
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10929,11 +10909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 187.12038
-=======
       value: 187.35545
->>>>>>> d79e170c842d994b83d0fbcb87aa4ea0d366480e
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10941,11 +10917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD
-      value: -124.76806
-=======
       value: -124.76026
->>>>>>> d79e170c842d994b83d0fbcb87aa4ea0d366480e
       objectReference: {fileID: 0}
     - target: {fileID: 4286457349528373308, guid: 3f17e88607978482baffe1fe413424d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19828,11 +19800,7 @@ MonoBehaviour:
     m_DataPoints: []
   m_Spline: {fileID: 1501386571}
   m_SegmentsPerMeter: 1
-<<<<<<< HEAD
-  m_Mesh: {fileID: 1895163585}
-=======
   m_Mesh: {fileID: 2090527108}
->>>>>>> d79e170c842d994b83d0fbcb87aa4ea0d366480e
   m_TextureScale: 1
   widthScale: 20
   asphaltMaterial: {fileID: 0}
@@ -19843,11 +19811,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501386567}
-<<<<<<< HEAD
-  m_Mesh: {fileID: 1895163585}
-=======
   m_Mesh: {fileID: 2090527108}
->>>>>>> d79e170c842d994b83d0fbcb87aa4ea0d366480e
 --- !u!23 &1501386570
 MeshRenderer:
   m_ObjectHideFlags: 0
