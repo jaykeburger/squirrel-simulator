@@ -14,11 +14,10 @@ public class TakeDamage : MonoBehaviour
 
     public void OnTriggerEnter (Collider other)
     {
-        Debug.Log("Trigger");
-        if (other.CompareTag("Bullet"))
-        {
+        // if (other.CompareTag("Bullet"))
+        // {
             Debug.Log("Damage");
-            health -= 20;
-        }
+            health -= 20f;
+        // }
     }
 }

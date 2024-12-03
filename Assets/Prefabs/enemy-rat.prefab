@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 2191820201638497887}
   - component: {fileID: 2538934773406921617}
   - component: {fileID: 3831253611665160912}
+  - component: {fileID: 8459540505414138928}
   m_Layer: 7
   m_Name: enemy-rat
   m_TagString: Enemy
@@ -380,6 +381,33 @@ MonoBehaviour:
   deathEffect: {fileID: 8674745909001448275, guid: f23c9661d880a461aa6c788491c7a445, type: 3}
   DamageClip: {fileID: 8300000, guid: 80f4517143660194db266021aaaffdd4, type: 3}
   DeathClip: {fileID: 8300000, guid: 71356d70dd86fb24b91d4c444365b391, type: 3}
+--- !u!54 &8459540505414138928
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801335018289826605}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 36
+  m_CollisionDetection: 0
 --- !u!1 &6761793350537765610
 GameObject:
   m_ObjectHideFlags: 0

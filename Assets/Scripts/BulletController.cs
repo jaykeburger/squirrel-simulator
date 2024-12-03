@@ -34,9 +34,11 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //Debug.Log("Hit object with tag: " + other.gameObject.tag);
+        Debug.Log("Hit object with tag: " + other.gameObject.tag);
         if (other.collider.CompareTag("Enemy"))
         {
+            TakeDamage.health -= 20f;
+            Debug.Log("Hit");
             //Debug.LogError("Enemy Hit");
             Transform enemyTransform = other.collider.transform.parent;
 
@@ -53,5 +55,4 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }

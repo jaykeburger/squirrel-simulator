@@ -59,7 +59,7 @@ public class FinalBossScript : MonoBehaviour
 
     public void endBattle()
     {
-
+        Debug.Log("END BATTLES");
     }
 
     // Update is called once per frame
