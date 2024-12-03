@@ -82,6 +82,7 @@ public class PlayerState : MonoBehaviour
                 GlobalValues.currentHealth += 10;
                 GlobalValues.currentHealth = Mathf.Min(GlobalValues.currentHealth, GlobalValues.maxHealth); //Ensure that current health won't exceed maxHealth
             }
+            QuestManager.Instance.CheckHealthRegeneration();
             isHealing = false;
         }
     }
