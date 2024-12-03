@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Slot
   - TrashBin
+  - Audio
   layers:
   - Default
   - TransparentFX

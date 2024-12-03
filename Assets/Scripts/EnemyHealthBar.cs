@@ -12,15 +12,12 @@ public class EnemyHealthBar : MonoBehaviour
     public float currenHealth;
     public ParticleSystem deathEffect;
 
+    AudioManager audioManager;
 
-    [SerializeField]
-    private AudioClip DamageClip;
-
-    [SerializeField]
-    private AudioClip DeathClip;
-
-    private AudioSource DamageSound; // Sound for taking damage
-    private AudioSource DeathSound; // Sound for death
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -28,15 +25,6 @@ public class EnemyHealthBar : MonoBehaviour
         currenHealth = maxHealth;
         healthBar.value = currenHealth;
         enemyController = FindAnyObjectByType<GenerateEnemies>(); // Get the object that holds the GenerateEnemies script.
-
-        DamageSound = gameObject.AddComponent<AudioSource>();
-        DeathSound = gameObject.AddComponent<AudioSource>();
-
-        DamageSound.clip = DamageClip;
-        DeathSound.clip = DeathClip;
-        DamageSound.playOnAwake = false;
-        DeathSound.playOnAwake = false;
-
     }
 
     // Update is called once per frame
@@ -47,34 +35,22 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void takeDamge(int amount)
     {
-        if (DamageSound != null && DamageSound.clip != null)
+        if (!audioManager.SFXSource.isPlaying)
         {
-            DamageSound.Play(); // Play damage sound
+            audioManager.PlaySFX(audioManager.damage);
         }    
         currenHealth -= amount;
      
         if (currenHealth <= 0)
         {
-            PlayDeathSound(); // Call method to handle death sound
+            if (!audioManager.SFXSource.isPlaying)
+            {
+            audioManager.PlaySFX(audioManager.Death);
+            }    
             enemyController.removeEnemyPosition(gameObject);
             gameObject.SetActive(false); // Deactivate enemy immediately
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             currenHealth = maxHealth;
         }
-    }
-
-    private void PlayDeathSound()
-    {
-        // Create a temporary GameObject to play the death sound
-        GameObject deathSoundObject = new GameObject("DeathSound");
-        AudioSource deathAudioSource = deathSoundObject.AddComponent<AudioSource>();
-
-        // Configure the audio source
-        deathAudioSource.clip = DeathClip;
-        deathAudioSource.playOnAwake = false;
-        deathAudioSource.Play();
-
-        // Destroy the temporary GameObject after the sound finishes playing
-        Destroy(deathSoundObject, DeathClip.length);
     }
 }

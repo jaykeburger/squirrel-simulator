@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
+
+
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
@@ -46,23 +48,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private BaseWeapon[] weapons;  // Array of available weapons
     public WeaponManager weaponManager;
+    AudioManager audioManager;
     
-    // Audio clips for different actions
-    [SerializeField]
-    private AudioClip jumpClip;
-    [SerializeField]
-    private AudioClip shootClip;
-    [SerializeField]
-    private AudioClip moveClip;
-    [SerializeField]
-    private AudioClip sprintClip;
-    
-    // AudioSources for playing the clips
-    private AudioSource jumpAudioSource;
-    private AudioSource shootAudioSource;
-    private AudioSource moveAudioSource;
-    private AudioSource sprintAudioSource;
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -85,17 +72,8 @@ public class PlayerController : MonoBehaviour
         dashAction = playerInput.actions["Dash"];
         currentSpeed = walkSpeed;
 
-        // Create audio sources
-        jumpAudioSource = gameObject.AddComponent<AudioSource>();
-        shootAudioSource = gameObject.AddComponent<AudioSource>();
-        moveAudioSource = gameObject.AddComponent<AudioSource>();
-        sprintAudioSource = gameObject.AddComponent<AudioSource>();
-
-        // Set the respective audio clips to the audio sources
-        jumpAudioSource.clip = jumpClip;
-        shootAudioSource.clip = shootClip;
-        moveAudioSource.clip = moveClip;
-        sprintAudioSource.clip = sprintClip;
+        //Access Audio manager
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
     }
     private void OnEnable()
@@ -126,7 +104,7 @@ public class PlayerController : MonoBehaviour
             if (weaponManager != null && weaponManager.weapons.Length > 0)
             {
                 weaponManager.StartShooting();
-                shootAudioSource.Play();
+                audioManager.PlaySFX(audioManager.shootAcorn);
             }
         }
     }
@@ -180,9 +158,9 @@ public class PlayerController : MonoBehaviour
         {
             currentSpeed = sprintSpeed;
             PlayerState.Instance.UseStamina(Time.deltaTime, 10f); //Reduce stamina while sprinting
-            if (!sprintAudioSource.isPlaying && !PauseScript.GameIsPause) // Play sprint sound only once when sprinting
+            if (!PauseScript.GameIsPause && !audioManager.SFXSource.isPlaying) // Play sprint sound only once when sprinting
             {
-                sprintAudioSource.Play();
+                audioManager.PlaySFX(audioManager.walk);
             }
         }
         else 
@@ -195,9 +173,9 @@ public class PlayerController : MonoBehaviour
                     PlayerState.Instance.RecoverStamina(Time.deltaTime); //Recovery stamina if not sprinting
                 }
             }
-            if (!moveAudioSource.isPlaying && input != Vector2.zero && !PauseScript.GameIsPause) // Play move sound when walking
+            if (input != Vector2.zero && !PauseScript.GameIsPause && !audioManager.SFXSource.isPlaying) // Play move sound when walking
             {
-                moveAudioSource.Play();
+                audioManager.PlaySFX(audioManager.walk);
             }
         }
         controller.Move(currentSpeed * Time.deltaTime * move);
@@ -208,7 +186,7 @@ public class PlayerController : MonoBehaviour
         if (jumpAction.triggered && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            jumpAudioSource.Play();
+            audioManager.PlaySFX(audioManager.jump);
         }
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
