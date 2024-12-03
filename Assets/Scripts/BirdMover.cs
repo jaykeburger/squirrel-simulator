@@ -114,27 +114,38 @@
 //         }
 //     }
 // }
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BirdMover : MonoBehaviour
 {
     public Transform target;
-    public float speed = 5f;
+    public float speed = 7f;
     public float diveSpeed = 20f;
-    public float chaseDistance = 30f;
+    public float chaseDistance = 50f;
     public float circleRadius = 10f;
     public float chaseTime = 5f;  // Time to chase before diving
     public float cooldownTime = 3f;  // Cooldown time after attacking before chasing again
-    public float diveDuration = 3f; // Maximum duration of dive attack
-    public Vector3[] waypoints;
-
-    private int currentWaypointIndex = 0;
+    public float diveDuration = 5f; // Maximum duration of dive attack
+    public float patrolTimer = 0f;
+    public float patrolDuration = 30f;
+    public bool isPatrolling = true;
+    public Queue<Vector3> waypoints = new();
+    // public Vector3[] waypoints;
+    private Vector3 currentWaypoint;
+    public int maxWaypoints = 10;
+    public float xMin = 0, xMax = 215f;
+    public float zMin = -180f, zMax = 55f;
     private float chaseTimer = 0;
     private float cooldownTimer = 0;
     private float diveTimer = 0; // Timer to track the duration of the dive attack
     private bool isDiving = false;
     private bool isCoolingDown = false;
     private AudioSource audioSource; // Audio source for playing dive sound
+
+    public int randIdx;
 
     private void Start()
     {
@@ -143,15 +154,8 @@ public class BirdMover : MonoBehaviour
             target = GameObject.FindGameObjectWithTag("Player").transform;
         }
         audioSource = GetComponent<AudioSource>();
-        if (waypoints.Length == 0)
-        {
-            waypoints = new Vector3[] {
-                new Vector3(50, 10, 50),
-                new Vector3(-50, 15, -50),
-                new Vector3(100, 20, 100),
-                new Vector3(-100, 10, -100)
-            };
-        }
+        InitializeWaypoints();
+        SetNextWaypoint();
     }
 
     private void Update()
@@ -173,28 +177,81 @@ public class BirdMover : MonoBehaviour
             DiveAttack();
             return;
         }
-
-        float distance = Vector3.Distance(transform.position, target.position);
-        if (distance < chaseDistance && !isDiving && !isCoolingDown)
+        // float distance = Vector3.Distance(transform.position, target.position);
+        // if (distance < chaseDistance && !isDiving && !isCoolingDown)
+        // {
+        //     ChasePlayer();
+        // }
+        // else
+        // {
+        //     Patrol();
+        //     chaseTimer = 0;
+        // }
+        if (isPatrolling)
         {
-            ChasePlayer();
+            Patrol();
+            patrolTimer += Time.deltaTime;
+            if (patrolTimer >= patrolDuration)
+            {
+                isPatrolling = false;
+                patrolTimer = 0f;
+                ChasePlayer();
+            }
         }
         else
         {
-            Patrol();
-            chaseTimer = 0;
+            ChasePlayer();
+        }
+        
+    }
+
+    void InitializeWaypoints()
+    {
+        // Fill the waypoints queue with initial random positions
+        for (int i = 0; i < maxWaypoints; i++)
+        {
+            waypoints.Enqueue(GenerateRandomPosition());
+        }
+    }
+
+    Vector3 GenerateRandomPosition()
+    {
+        float xPos = Random.Range(xMin, xMax);
+        float zPos = Random.Range(zMin, zMax);
+        return new Vector3(xPos, transform.position.y, zPos);
+    }
+
+    void SetNextWaypoint()
+    {
+        if (waypoints.Count > 0)
+        {
+            currentWaypoint = waypoints.Dequeue();
+
+            // Generate a new waypoint if we're below the limit
+            if (waypoints.Count < maxWaypoints)
+            {
+                waypoints.Enqueue(GenerateRandomPosition());
+            }
+        }
+        else
+        {
+            // If no waypoints are left, generate one immediately
+            currentWaypoint = GenerateRandomPosition();
         }
     }
 
     void Patrol()
     {
-        if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex]) < 1f)
+        if (Vector3.Distance(transform.position, currentWaypoint) < 1f)
         {
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+            SetNextWaypoint();
         }
-        Vector3 direction = (waypoints[currentWaypointIndex] - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
-        transform.LookAt(transform.position + direction);
+        else
+        {
+            Vector3 direction = (currentWaypoint- transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
+            transform.LookAt(transform.position + direction);
+        }
     }
 
     void ChasePlayer()
@@ -221,7 +278,7 @@ public class BirdMover : MonoBehaviour
 
         diveTimer += Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, target.position) < 2f || diveTimer > diveDuration)
+        if (Vector3.Distance(transform.position, target.position) < 1f || diveTimer > diveDuration)
         {
             // Call DecreaseHealth on the player before ending the dive
             DecreaseHealth(target);
@@ -230,7 +287,6 @@ public class BirdMover : MonoBehaviour
     }
     void DecreaseHealth(Transform player)
     {
-        
           PlayerState.Instance.DecreaseHealth(); // Call the method that decreases the player's health
         
     }
@@ -238,6 +294,6 @@ public class BirdMover : MonoBehaviour
     {
         isDiving = false;
         isCoolingDown = true;
-        currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+        SetNextWaypoint();
     }
 }
