@@ -8,6 +8,7 @@ public class CountBullet : MonoBehaviour
 {
     public TextMeshProUGUI acornText;
     public TextMeshProUGUI rockText;
+    
 
     void Start()
     {
@@ -36,5 +37,12 @@ public class CountBullet : MonoBehaviour
             rockText.text = "Rock: " + GlobalValues.rockCount.ToString();
             Destroy(other.gameObject);
         }
+        else if (other.CompareTag("paper") || other.CompareTag("pencil"))
+        {
+            QuestManager.Instance.CollectItem(other.tag);
+            Destroy(other.gameObject);
+        }
+
     }
+    
 }

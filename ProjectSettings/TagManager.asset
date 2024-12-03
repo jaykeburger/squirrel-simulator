@@ -11,6 +11,9 @@ TagManager:
   - Slot
   - TrashBin
   - Audio
+  - paper
+  - pencil
+  - jimmy
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - UI
   - Bullets
   - Enemy
-  - 
+  - Props
   - 
   - 
   - 

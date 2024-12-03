@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
         // Condition to only dash when still have stamina available
         if (isDashing && GlobalValues.currentStamina > 0)
         {
-            PlayerState.Instance.UseStamina(Time.deltaTime, 50f);
+            // PlayerState.Instance.UseStamina(Time.deltaTime, 50f);
             currentSpeed = dashSpeed;
         }
         // Make sure stamina bar only decrease if player move while hold down the shift button and on the ground
@@ -262,6 +262,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Dash()
     {
         isDashing = true; // Start Dashing
+        PlayerState.Instance.UseStamina(Time.deltaTime, 50f);
         dashCoolDownTimer = dashCoolDown; // Reset cooldown timer
 
         yield return new WaitForSeconds(dashDuration);

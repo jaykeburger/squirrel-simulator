@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Pool;
@@ -11,6 +12,8 @@ public class InteractableObject : MonoBehaviour
 {
     [SerializeField] public bool playerInRange;
     public GameObject InteractableUI;
+    public GameObject dialogCanvas;
+    public TextMeshProUGUI text;
     public int binID;
 
     public List<string> items = new List<string>{"Bread", "Mushroom"};
@@ -38,6 +41,7 @@ public class InteractableObject : MonoBehaviour
         {
             playerInRange = false;
             InteractableUI.SetActive(false);
+            dialogCanvas.SetActive(false);
         }
     }
 
@@ -45,11 +49,20 @@ public class InteractableObject : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if (!dialogCanvas.activeSelf){
+                dialogCanvas.SetActive(true);
+            }
+            else
+            {
+                dialogCanvas.SetActive(false);
+            }
+            
             if (binID == GlobalValues.binIsChoseID)
             {
                 Debug.Log("Hit the right bin");
                 int randomItem = Random.Range(0,items.Count); // Range of items list
                 string randomItemName = items[randomItem];
+                text.text = "Ohhh " + randomItemName;
                 Debug.Log(randomItemName);
                 InventorySystem.instance.AddToInventory(randomItemName);
                 GlobalValues.binIsChose = false;
@@ -57,6 +70,7 @@ public class InteractableObject : MonoBehaviour
             else
             {
                 Debug.Log("This bin is not chosen");
+                text.text = "There is nothing in here";
             }
         }
     }
