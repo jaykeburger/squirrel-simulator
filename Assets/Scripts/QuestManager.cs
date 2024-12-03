@@ -11,6 +11,8 @@ public class QuestManager : MonoBehaviour
     public bool IsSecondQuestComplete { get; private set; }
     public int PaperCount { get; private set; }
     public int PencilCount { get; private set; }
+    public bool IsThirdQuestComplete { get; private set; }
+    public bool IsHealthRegenerated { get; set; }  // This flag can be set by another script that manages the player's health
 
     private void Awake()
     {
@@ -57,6 +59,20 @@ public class QuestManager : MonoBehaviour
     {
         IsSecondQuestComplete = true;
         Debug.Log("Second Quest Completed!");
+
     }
+    public void CheckHealthRegeneration()
+    {
+            if (!IsThirdQuestComplete )
+            {
+            IsThirdQuestComplete = true;
+            Debug.Log("Third Quest Completed! Health has been regenerated.");
+
+            // Implement additional actions when the quest is completed, if necessary
+            }
+        
+    }
+
+    
 }
 
