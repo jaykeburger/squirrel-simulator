@@ -19,12 +19,15 @@ public class QuestUIManager : MonoBehaviour
         else if (!QuestManager.Instance.IsSecondQuestComplete)
         {
             // Text for the second quest once the first is complete
-            questText.text = "Second Quest:\nGet close to Jimmy.";
+            questText.text = "Second Quest:\nFind Jimmy.";
         }
         else
         {
             // Optional: Message when all quests are complete
-            questText.text = "All quests completed!";
+            questText.text = "You look injured!" +
+                    "\nCome to my dorm to heal!" +
+                    "\nAfterwards, head to the library to find the professor." +
+                    "\nHe may have the antitode.";
         }
     }
 }
