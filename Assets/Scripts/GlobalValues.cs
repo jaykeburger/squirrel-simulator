@@ -15,8 +15,8 @@ public static class GlobalValues
     public static float maxStamina = 100f;
 
     // Values for bullet count
-    public static int acornCount = 0;
-    public static int rockCount = 0;
+    public static int acornCount = 15;
+    public static int rockCount = 5;
 
     // Values for inventory
     public static Dictionary<int, string> GlobalInventory = new();

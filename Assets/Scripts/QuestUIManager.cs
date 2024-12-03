@@ -19,15 +19,18 @@ public class QuestUIManager : MonoBehaviour
         else if (!QuestManager.Instance.IsSecondQuestComplete)
         {
             // Text for the second quest once the first is complete
+
             questText.text = "Second Quest:\nTalk to Jimmy at PGH";
         }
         else if (!QuestManager.Instance.IsThirdQuestComplete)
         {
-            questText.text = "Third Quest: Regenerate your health.";
+            questText.text = "You look injured!" +
+                    "\nCome to my dorm to heal!";
         }
         else
         {
-            questText.text = "Obtain antidote from library";
+            questText.text = "head to the library to find the professor.\nHe may have the antitode.";
+
         }
     }
 }

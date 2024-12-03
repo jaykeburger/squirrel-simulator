@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class EnteringPGH : MonoBehaviour
 {
-    [SerializeField] private GameObject asyncManager;
+    [SerializeField] 
+    private GameObject asyncManager;
+    public GameObject dialogCanvas;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -31,7 +33,16 @@ public class EnteringPGH : MonoBehaviour
             else
             {
                 Debug.Log("Quest not completed yet. Cannot enter PGH232.");
+                dialogCanvas.SetActive(true);
             }
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            dialogCanvas.SetActive(false);   
         }
     }
 }
