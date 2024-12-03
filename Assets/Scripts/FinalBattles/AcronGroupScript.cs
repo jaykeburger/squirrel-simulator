@@ -13,7 +13,7 @@ public void OnTriggerEnter(Collider other)
 
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Touched");
+            GlobalValues.currentHealth -= 5;
         }
     }
 }

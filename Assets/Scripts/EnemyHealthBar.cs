@@ -12,7 +12,6 @@ public class EnemyHealthBar : MonoBehaviour
     public float currenHealth;
     public ParticleSystem deathEffect;
 
-
     [SerializeField]
     private AudioClip DamageClip;
 

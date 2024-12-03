@@ -28,6 +28,10 @@ public class LightsUpPaths : MonoBehaviour
         {
             showPath();
         }
+        // if (MovingRats.shouldMove == false)
+        // {
+        //     path.GetComponent<MeshRenderer>().enabled = false;
+        // }
     }
 
     public void showPath()
@@ -60,29 +64,5 @@ public class LightsUpPaths : MonoBehaviour
         }
         sphereActive = true;
         MovingRats.shouldMove = true;
-        // MovePath();
-    }
-
-    public void MovePath()
-    {
-        transform.position = pathOriginalPos;
-
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            Debug.Log("Found rb");
-            rb.velocity = Vector3.zero; //Stop movement;
-            rb.angularVelocity = Vector3.zero; //Stop rotation;
-        }   
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
-        if (moveLeft)
-        {
-            transform.position += Vector3.left * 3f;
-            moveLeft = false;
-        }
-        else
-        {
-            moveLeft = true;
-        }
     }
 }

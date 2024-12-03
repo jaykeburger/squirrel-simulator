@@ -17,7 +17,7 @@ public float speed = 5f;
     // Update is called once per frame
     void Update()
     {
-        if (shouldMove)
+        if (shouldMove == true)
         {
             gameObject.GetComponent<MeshRenderer>().enabled = true;
             transform.position += Vector3.left * speed * Time.deltaTime;
@@ -34,20 +34,17 @@ public float speed = 5f;
             Rigidbody rb = GetComponent<Rigidbody>();
             if (rb != null)
             {
-                Debug.Log("Found rb");
                 rb.velocity = Vector3.zero; //Stop movement;
                 rb.angularVelocity = Vector3.zero; //Stop rotation;
+                rb.Sleep();
+                Debug.Log("Found rb");
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
             }
-            // gameObject.GetComponent<MeshRenderer>().enabled = false;
-            // if (moveLeft)
-            // {
-            //     transform.position += Vector3.left * 3f;
-            //     moveLeft = false;
-            // }
-            // else
-            // {
-            //     moveLeft = true;
-            // }
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            GlobalValues.currentHealth -= 5;
         }
     }
 }
