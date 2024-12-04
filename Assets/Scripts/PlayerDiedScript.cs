@@ -41,8 +41,8 @@ public class PlayerDiedScript : MonoBehaviour
     // If we can make save/load system
     public void Load()
     {
-        Time.timeScale = 1f; 
-        DiedMenu.SetActive(false);
+        //Time.timeScale = 1f; 
+        //DiedMenu.SetActive(false);
         SceneManager.LoadScene("first-scene");
     }
 }
