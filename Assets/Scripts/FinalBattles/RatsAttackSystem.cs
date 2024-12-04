@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class RatsAttackSystem : MonoBehaviour
 {
-    public static bool first;
+    public static bool first = false;
+    public static bool second = false;
     public GameObject firstGroup;
     public GameObject secondGroup;
     public List<LightsUpPaths> paths = new List<LightsUpPaths>();
@@ -40,25 +41,7 @@ public class RatsAttackSystem : MonoBehaviour
     {
         if (FinalBossScript.activeRats)
         {
-            if (!first)
-            {
-                foreach(Transform child in secondGroup.transform)
-                {
-                    if (child.CompareTag("RatGroup"))
-                    {
-                        child.gameObject.SetActive(true);
-                        ActiveGroup(secondGroup);
-                    }
-                }
-                foreach(Transform child in firstGroup.transform)
-                {
-                    if (child.CompareTag("RatGroup"))
-                    {
-                        child.gameObject.SetActive(false);
-                    }
-                }
-            }
-            else
+            if (first)
             {
                 foreach(Transform child in firstGroup.transform)
                 {
@@ -68,12 +51,40 @@ public class RatsAttackSystem : MonoBehaviour
                         ActiveGroup(firstGroup);
                     }
                 }
-                foreach(Transform child in secondGroup.transform)
+            }
+            if (second)
+            {
+                foreach(Transform child in firstGroup.transform)
                 {
                     if (child.CompareTag("RatGroup"))
                     {
                         child.gameObject.SetActive(false);
                     }
+                }
+                foreach(Transform child in secondGroup.transform)
+                {
+                    if (child.CompareTag("RatGroup"))
+                    {
+                        child.gameObject.SetActive(true);
+                        ActiveGroup(secondGroup);
+                    }
+                }
+            }
+        }
+        else
+        {
+            foreach(Transform child in firstGroup.transform)
+            {
+                if (child.CompareTag("RatGroup"))
+                {
+                    child.gameObject.SetActive(false);
+                }
+            }
+            foreach(Transform child in secondGroup.transform)
+            {
+                if (child.CompareTag("RatGroup"))
+                {
+                    child.gameObject.SetActive(false);
                 }
             }
         }

@@ -10,8 +10,6 @@ public class FinalBossScript : MonoBehaviour
     public EnemyShoot enemyShoot;
     // public EnemyShoot enemyShoot;
     public bool isBattleActive = true;
-    public float playerHealth = 100;
-    public float enemyHealth = 100;
     public int attackChoice;
     public static bool activeRats = false;
     public GameObject winPanel;
@@ -49,27 +47,22 @@ public class FinalBossScript : MonoBehaviour
             attackChoice = Random.Range(0,3);
             if (attackChoice == 0)
             {
+                Debug.Log(attackChoice);
                 redCircleDrawer.InitializeCircles();
             }
             else if (attackChoice == 1)
             {
+                Debug.Log(attackChoice);
                 enemyShoot.StartShootingPlayer();
             }
             else
             {
+                Debug.Log(attackChoice);
                 activeRats = true;
-                int idx = Random.Range(0,2);
-                if (idx == 0)
-                {
-                    RatsAttackSystem.first = false;
-                }
-                else
-                {
-                    RatsAttackSystem.first = true;
-                }
+                RatsAttackSystem.first = true;
             }
             yield return new WaitForSeconds(10f);
-            activeRats = false;
+            // activeRats = false;
         }
     }
 
@@ -91,7 +84,6 @@ public class FinalBossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // while player's health >= 0
 
     }
 }

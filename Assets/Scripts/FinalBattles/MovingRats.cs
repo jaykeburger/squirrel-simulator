@@ -26,7 +26,6 @@ public float speed = 5f;
 
     public void OnTriggerEnter (Collider other)
     {
-        Debug.Log("Trigger detected from: " + other.gameObject.name);
 
         if (other.gameObject.name == "Player")
         {
@@ -38,15 +37,17 @@ public float speed = 5f;
         {
             transform.position = originalPos;
             shouldMove = false;
-
-            Rigidbody rb = GetComponent<Rigidbody>();
-            if (rb != null)
+            Transform manage = transform.parent?.parent; // Get parent of parent of the rat
+            if (manage.name == "First")
             {
-                rb.velocity = Vector3.zero; //Stop movement;
-                rb.angularVelocity = Vector3.zero; //Stop rotation;
-                rb.Sleep();
-                Debug.Log("Found rb");
-                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                RatsAttackSystem.first = false;
+                RatsAttackSystem.second = true;
+            }
+            if (manage.name == "Second")
+            {
+                // gameObject.GetComponent<MeshRenderer>().enabled = false;
+                FinalBossScript.activeRats = false;
+                RatsAttackSystem.second = false;
             }
         }
     }
