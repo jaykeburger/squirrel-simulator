@@ -8,7 +8,7 @@ public class EnemyShoot : MonoBehaviour
     public Transform player;         // Reference to the player
     public float shootingForce = 10f; // The force with which the bullet is shot
     public float shootingCooldown = 2f; // Time delay between shots
-    public float maxDistance = 50f;
+    public float maxDistance = 120f;
     private float nextShootTime = 0f;
     public bool isShootingActive = false;
 

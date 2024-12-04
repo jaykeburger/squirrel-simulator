@@ -11,10 +11,10 @@ public class EnterLi : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-                AsyncLoader sceneLoader = asyncManager.GetComponent<AsyncLoader>();
-                if (sceneLoader != null)
-                {
-                    sceneLoader.LoadScene("LibraryInside");
-                }
+            AsyncLoader sceneLoader = asyncManager.GetComponent<AsyncLoader>();
+            if (sceneLoader != null)
+            {
+                sceneLoader.LoadScene("LibraryInside");
+            }
     }
 }

@@ -6,9 +6,11 @@ public class PotionDamage : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log("Hit: " + other.gameObject.name);
+        if (other.gameObject.name == "Player")
         {
-            GlobalValues.currentHealth -= 10;
+            //GlobalValues.currentHealth -= 10;
+            PlayerState.Instance.DecreaseHealth();
         }
     }
 }

@@ -6,14 +6,14 @@ public class AcronGroupScript : MonoBehaviour
 {
 public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.name == "Player")
+        {
+            GlobalValues.currentHealth -= 5;
+        }
+
         if (other.CompareTag("Plane"))
         {
             Destroy(gameObject);
-        }
-
-        if (other.CompareTag("Player"))
-        {
-            GlobalValues.currentHealth -= 5;
         }
     }
 }

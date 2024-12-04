@@ -26,6 +26,14 @@ public float speed = 5f;
 
     public void OnTriggerEnter (Collider other)
     {
+        Debug.Log("Trigger detected from: " + other.gameObject.name);
+
+        if (other.gameObject.name == "Player")
+        {
+            Debug.Log("Hit player");
+            PlayerState.Instance.DecreaseHealth();
+        }
+
         if (other.CompareTag("Barrier"))
         {
             transform.position = originalPos;
@@ -40,11 +48,6 @@ public float speed = 5f;
                 Debug.Log("Found rb");
                 gameObject.GetComponent<MeshRenderer>().enabled = false;
             }
-        }
-
-        if (other.CompareTag("Player"))
-        {
-            GlobalValues.currentHealth -= 5;
         }
     }
 }
