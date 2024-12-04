@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PGH232.unity
     guid: 7c1eb6306c94c66468dd9b886a59e45c
+  - enabled: 1
+    path: Assets/Scenes/LibraryInside.unity
+    guid: 84aa30a5823b9744289859bf96f3df10
   m_configObjects: {}

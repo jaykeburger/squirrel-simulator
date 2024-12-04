@@ -46,7 +46,7 @@ public class FinalBossScript : MonoBehaviour
                 yield break;
             }
 
-            attackChoice = Random.Range(0,1);
+            attackChoice = Random.Range(0,3);
             if (attackChoice == 0)
             {
                 redCircleDrawer.InitializeCircles();
