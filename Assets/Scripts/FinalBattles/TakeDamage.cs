@@ -12,12 +12,13 @@ public class TakeDamage : MonoBehaviour
         currentHealth = health;
     }
 
-    public void OnTriggerEnter (Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        // if (other.CompareTag("Bullet"))
-        // {
-            Debug.Log("Damage");
+        Debug.Log("Trigger detected from: " + other.gameObject.name);
+        if (other.CompareTag("Bullet"))
+        {
             health -= 20f;
-        // }
+            health = Mathf.Max(0, health);
+        }
     }
 }
