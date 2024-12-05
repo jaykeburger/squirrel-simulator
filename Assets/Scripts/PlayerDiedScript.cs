@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 
 public class PlayerDiedScript : MonoBehaviour
@@ -27,22 +28,19 @@ public class PlayerDiedScript : MonoBehaviour
             {
                 animator.enabled = false;
             }
-
-            // Log the death event
-            Debug.Log("You died");
         }
     }
     public void QuitGame()
     {   
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        GlobalValues.currentHealth = 100;
+        PauseScript.QuitGame();
     }
 
     // If we can make save/load system
     public void Load()
     {
-        //Time.timeScale = 1f; 
-        //DiedMenu.SetActive(false);
-        SceneManager.LoadScene("first-scene");
+        GlobalValues.currentHealth = 100;
+        PauseScript.GameIsPause = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

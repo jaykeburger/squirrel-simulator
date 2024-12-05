@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("Comic-1");
+        SceneManager.LoadScene("first-scene");
     }
 
     public void Quit()

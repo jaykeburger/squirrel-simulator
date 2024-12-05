@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,7 +23,6 @@ public class PauseScript : MonoBehaviour
                 Pause();
             }
         }
-        
     }
 
     public void Resume()
@@ -40,7 +40,7 @@ public class PauseScript : MonoBehaviour
         GameIsPause = true;
     }
     
-    public void QuitGame()
+    public static void QuitGame()
     {   
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
