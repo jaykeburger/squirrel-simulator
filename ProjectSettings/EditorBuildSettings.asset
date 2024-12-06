@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Comic-3.unity
     guid: b77b48d30ebf53748a87c4e075519d51
   - enabled: 1
+    path: Assets/Scenes/Comic-4.unity
+    guid: ae52af975f8ffa542bb11fb622acab82
+  - enabled: 1
+    path: Assets/Scenes/Comic-5.unity
+    guid: ea49ae40deff6db43ae0f3c20bd5f8a3
+  - enabled: 1
     path: Assets/Scenes/first-scene.unity
     guid: 99a98f8b7549bb04990f60cdb0072a12
   - enabled: 1
