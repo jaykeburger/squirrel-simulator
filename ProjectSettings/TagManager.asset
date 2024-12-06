@@ -18,6 +18,7 @@ TagManager:
   - RatGroup
   - Bullet
   - Book
+  - Audio
   layers:
   - Default
   - TransparentFX
