@@ -35,7 +35,6 @@ public class EnemyHealthBar : MonoBehaviour
         DeathSound.clip = DeathClip;
         DamageSound.playOnAwake = false;
         DeathSound.playOnAwake = false;
-
     }
 
     // Update is called once per frame
@@ -55,11 +54,22 @@ public class EnemyHealthBar : MonoBehaviour
      
         if (currenHealth <= 0)
         {
+            if (gameObject.name == "dr-evyll")
+            {
+                FinalBossScript.isDead = true;
+            }
+            else
+            {
+                enemyController.removeEnemyPosition(gameObject);
+                gameObject.SetActive(false); // Deactivate enemy immediately
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+                currenHealth = maxHealth;
+            }
             PlayDeathSound(); // Call method to handle death sound
-            enemyController.removeEnemyPosition(gameObject);
-            gameObject.SetActive(false); // Deactivate enemy immediately
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-            currenHealth = maxHealth;
+            // enemyController.removeEnemyPosition(gameObject);
+            // gameObject.SetActive(false); // Deactivate enemy immediately
+            // Instantiate(deathEffect, transform.position, Quaternion.identity);
+            // currenHealth = maxHealth;
         }
     }
 

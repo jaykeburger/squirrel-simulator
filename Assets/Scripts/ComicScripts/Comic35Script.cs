@@ -13,7 +13,7 @@ public class Comic35Script : MonoBehaviour
 
     void Start()
     {
-        Panel1.gameObject.SetActive(false);
+        // Panel1.gameObject.SetActive(false);
         Panel2.gameObject.SetActive(false);
         Panel3.gameObject.SetActive(false);
     }
@@ -22,18 +22,15 @@ public class Comic35Script : MonoBehaviour
         count++;
         if (count == 1)
         {
-            Panel1.gameObject.SetActive(true);
+            Panel2.gameObject.SetActive(true);
         }
         else if (count == 2)
         {
-            Panel2.gameObject.SetActive(true);
+            Panel3.gameObject.SetActive(true);
         }
         else if (count == 3)
         {
-            Panel3.gameObject.SetActive(true);
-        }
-        else if (count >= 4)
-        {
+            Cursor.lockState = CursorLockMode.Locked;
             SceneManager.LoadScene("PGH232");
         }
     }

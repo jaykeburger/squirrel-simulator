@@ -11,10 +11,18 @@ public class EnterLi : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (QuestManager.Instance != null && QuestManager.Instance.IsThirdQuestComplete)
+        {
             AsyncLoader sceneLoader = asyncManager.GetComponent<AsyncLoader>();
             if (sceneLoader != null)
             {
                 sceneLoader.LoadScene("LibraryInside");
             }
+        }
+        else
+        {
+            Debug.Log("Quest not completed yet. Cannot enter Library.");
+            dialogCanvas.SetActive(true);
+        }
     }
 }

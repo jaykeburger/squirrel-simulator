@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Jobs;
+using UnityEngine.SceneManagement;
 
 public class FinalBossScript : MonoBehaviour
 {
@@ -11,12 +12,11 @@ public class FinalBossScript : MonoBehaviour
     public static bool isBattleActive = false;
     public int attackChoice;
     public static bool activeRats = false;
-    public GameObject winPanel;
     public GameObject losePanel;
+    public static bool isDead = false;
     // Start is called before the first frame update
     void Awake()
     {
-        if (winPanel != null) winPanel.SetActive(false);
         if (losePanel != null) losePanel.SetActive(false);
     }
     void Start()
@@ -38,26 +38,33 @@ public class FinalBossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (GlobalValues.currentHealth <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GlobalValues.currentHealth = GlobalValues.maxHealth;
+            isBattleActive = false;
+        }
     }
 
     IEnumerator FinalBattles()
     {
-        Debug.Log("start");
         while (isBattleActive)
         {
-            if (GlobalValues.currentHealth <= 0 || TakeDamage.health <= 0)
+            if (GlobalValues.currentHealth <= 0 || isDead)
             {
-                string message;
+                Debug.Log("is trigger");
+                Time.timeScale = 0f;
                 if (GlobalValues.currentHealth <= 0)
                 {
-                    message = "Lose";
+                    losePanel.SetActive(true);
+                    yield return new WaitForSeconds(0.5f);
+
                 }
                 else
                 {
-                    message = "Win";
+                    Cursor.lockState = CursorLockMode.None;
+                    SceneManager.LoadScene("Comic-4");
                 }
-                endBattle(message);
                 yield break;
             }
 
@@ -81,20 +88,5 @@ public class FinalBossScript : MonoBehaviour
             yield return new WaitForSeconds(10f);
             // activeRats = false;
         }
-    }
-
-    public void endBattle(string message)
-    {
-        if (message == "Win")
-        {
-            winPanel.SetActive(true);
-        }
-        if (message == "Lose")
-        {
-            losePanel.SetActive(true);
-        }
-        Debug.Log("END BATTLES");
-        PauseScript.GameIsPause = true;
-        Time.timeScale = 0f;
     }
 }

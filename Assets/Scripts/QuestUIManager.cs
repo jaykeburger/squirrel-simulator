@@ -29,7 +29,7 @@ public class QuestUIManager : MonoBehaviour
         }
         else
         {
-            questText.text = "head to the library to find the professor.\nHe may have the antitode.";
+            questText.text = "Head to the library to find the professor.\nHe may have the antitode.";
 
         }
     }

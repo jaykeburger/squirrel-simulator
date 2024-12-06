@@ -6,9 +6,9 @@ public class EnemyShoot : MonoBehaviour
 {
     public GameObject bulletPrefab;  // Bullet prefab (sphere)
     public Transform player;         // Reference to the player
-    public float shootingForce = 10f; // The force with which the bullet is shot
+    public float shootingForce = 500f; // The force with which the bullet is shot
     public float shootingCooldown = 2f; // Time delay between shots
-    public float maxDistance = 120f;
+    public float maxDistance = 1000f;
     private float nextShootTime = 0f;
     public bool isShootingActive = false;
 
@@ -60,7 +60,7 @@ public class EnemyShoot : MonoBehaviour
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
 
             // Instantiate the bullet at the enemy's position
-            GameObject bullet = Instantiate(bulletPrefab, transform.position + directionToPlayer * 1f, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position + directionToPlayer * 1.5f, Quaternion.identity);
 
             // Add force to the bullet in the direction of the player
             Rigidbody rb = bullet.GetComponent<Rigidbody>();

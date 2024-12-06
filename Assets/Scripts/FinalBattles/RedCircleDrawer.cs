@@ -71,7 +71,7 @@ public class RedCircleDrawer : MonoBehaviour
         spriteRenderer.color = Color.red;
         // Instantiate(spherePrefab, circle.transform.position + new Vector3(0, 10f, 0), Quaternion.identity);
         yield return StartCoroutine(SpawnSpheres(circle.transform.position, 3f));
-        yield return new WaitForSeconds(2.2f);
+        yield return new WaitForSeconds(2.9f);
         Destroy(circle);
     }
 

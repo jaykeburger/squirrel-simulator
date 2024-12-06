@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JimmyInteraction : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class JimmyInteraction : MonoBehaviour
             {
                 Debug.Log("Sending that Second Quest Completed!");
                 QuestManager.Instance.CompleteSecondQuest();
+                Cursor.lockState = CursorLockMode.None;
+                SceneManager.LoadScene("Comic-3.5");
             }
         }
     }

@@ -11,16 +11,13 @@ public class Comic4Script : MonoBehaviour
 
     void Start()
     {
-        Panel1.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        // Panel1.gameObject.SetActive(false);
     }
     public void onclick()
     {
         count++;
         if (count == 1)
-        {
-            Panel1.gameObject.SetActive(true);
-        }
-        else if (count >= 2)
         {
             SceneManager.LoadScene("Comic-5"); //Change this to whatever scene you want
         }

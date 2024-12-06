@@ -69,6 +69,7 @@ public class PlayerState : MonoBehaviour
             damageSound.Play();
         }
         GlobalValues.currentHealth -= healthDamage;
+        // GlobalValues.currentHealth = Mathf.Max(0, GlobalValues.currentHealth);
     }
 
     IEnumerator RecoverHealth()

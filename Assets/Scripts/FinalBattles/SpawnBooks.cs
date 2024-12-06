@@ -11,7 +11,6 @@ public class SpawnBooks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Spawning");
         if (plane == null)
         {
             Debug.Log("No plane found");
@@ -34,11 +33,8 @@ public class SpawnBooks : MonoBehaviour
     {
         for (int i = 0; i < spawnItemNum; i ++)
         {
-            Debug.Log("Spawning");
             GameObject bookToSpawn = bookList[Random.Range(0, bookList.Count)];
-            Debug.Log(bookToSpawn.name);
             Vector3 spawnPos = GetRandomPos(plane);
-            Debug.Log(spawnPos);
             Instantiate(bookToSpawn, spawnPos, Quaternion.identity);
         }
     }

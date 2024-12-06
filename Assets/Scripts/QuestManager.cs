@@ -63,7 +63,7 @@ public class QuestManager : MonoBehaviour
     }
     public void CheckHealthRegeneration()
     {
-            if (!IsThirdQuestComplete )
+            if (!IsThirdQuestComplete)
             {
             IsThirdQuestComplete = true;
             Debug.Log("Third Quest Completed! Health has been regenerated.");
