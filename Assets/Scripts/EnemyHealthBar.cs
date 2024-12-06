@@ -46,6 +46,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void takeDamge(int amount)
     {
+        Debug.Log("Taking Damage");
         if (DamageSound != null && DamageSound.clip != null)
         {
             DamageSound.Play(); // Play damage sound

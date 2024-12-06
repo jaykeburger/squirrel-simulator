@@ -18,6 +18,7 @@ public class LightsUpPaths : MonoBehaviour
     void Start()
     {
         path.GetComponent<MeshRenderer>().enabled = false;
+        path.GetComponent<MeshRenderer>().receiveShadows = false;
         pathOriginalPos = transform.position;
     }
 
@@ -54,7 +55,7 @@ public class LightsUpPaths : MonoBehaviour
 
         while (elapsedTime < duration)
         {
-            // Toggle visibilityasd
+            // Toggle visibility
             isVisible = !isVisible;
             meshRenderer.material.color = isVisible ? Color.red : Color.clear;
 

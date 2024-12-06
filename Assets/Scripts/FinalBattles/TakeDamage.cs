@@ -14,7 +14,6 @@ public class TakeDamage : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger detected from: " + other.gameObject.name);
         if (other.CompareTag("Bullet"))
         {
             health -= 20f;

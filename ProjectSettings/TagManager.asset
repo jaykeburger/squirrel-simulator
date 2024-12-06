@@ -17,6 +17,7 @@ TagManager:
   - Barrier
   - RatGroup
   - Bullet
+  - Book
   layers:
   - Default
   - TransparentFX

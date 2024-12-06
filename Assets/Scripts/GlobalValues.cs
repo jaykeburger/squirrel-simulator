@@ -17,6 +17,7 @@ public static class GlobalValues
     // Values for bullet count
     public static int acornCount = 15;
     public static int rockCount = 5;
+    public static int bookCount = 0;
 
     // Values for inventory
     public static Dictionary<int, string> GlobalInventory = new();

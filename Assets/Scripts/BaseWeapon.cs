@@ -20,6 +20,7 @@ public abstract class BaseWeapon : MonoBehaviour
 
     protected void Shoot()
     {
+        Debug.Log("Shooting");
         RaycastHit hit;
         GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity);
         if (bulletParent != null && bulletParent.gameObject.activeSelf)

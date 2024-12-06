@@ -8,8 +8,7 @@ public class FinalBossScript : MonoBehaviour
     public RedCircleDrawer redCircleDrawer;
     public RatsAttackSystem ratAttack;
     public EnemyShoot enemyShoot;
-    // public EnemyShoot enemyShoot;
-    public bool isBattleActive = true;
+    public static bool isBattleActive = false;
     public int attackChoice;
     public static bool activeRats = false;
     public GameObject winPanel;
@@ -22,11 +21,29 @@ public class FinalBossScript : MonoBehaviour
     }
     void Start()
     {
+        StartCoroutine(WaitForCondition());
+    }
+
+    IEnumerator WaitForCondition()
+    {
+        while (!isBattleActive)
+        {
+            yield return null; // Wait until next frame
+        }
+
+        Debug.Log("From boss fight: " + isBattleActive);
         StartCoroutine(FinalBattles());
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     IEnumerator FinalBattles()
     {
+        Debug.Log("start");
         while (isBattleActive)
         {
             if (GlobalValues.currentHealth <= 0 || TakeDamage.health <= 0)
@@ -79,11 +96,5 @@ public class FinalBossScript : MonoBehaviour
         Debug.Log("END BATTLES");
         PauseScript.GameIsPause = true;
         Time.timeScale = 0f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

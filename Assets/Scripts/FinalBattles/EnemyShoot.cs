@@ -103,9 +103,6 @@ public class Bullet : MonoBehaviour
         // Check if the bullet collides with the player
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Print "Hit" to the console
-            Debug.Log("Hit");
-
             // Destroy the bullet upon collision with the player
             Destroy(gameObject);
         }
