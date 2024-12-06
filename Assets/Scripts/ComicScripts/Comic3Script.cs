@@ -40,7 +40,7 @@ public class Comic3Script : MonoBehaviour
         }
         else if (count >= 5)
         {
-            SceneManager.LoadScene("first-scene");
+            SceneManager.LoadScene("Menu");
         }
     }
 }
